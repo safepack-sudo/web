@@ -230,6 +230,11 @@ export default function SubpageDetail() {
                   aria-label="Product Images Carousel"
                 >
                   <div className="figure-viewport">
+                    <div 
+                      className="figure-ambient-backdrop" 
+                      style={{ backgroundImage: `url(${galleryList[activeIdx]})` }}
+                      aria-hidden="true"
+                    ></div>
                     {galleryList.map((img, idx) => (
                       <img 
                         key={idx}

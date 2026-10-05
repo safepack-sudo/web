@@ -1289,24 +1289,31 @@ img {
 
 .subpage-featured-figure {
   position: relative;
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
-  background: #f1f5f3;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  height: 380px;
+  background: radial-gradient(circle at center, rgba(19, 128, 76, 0.08) 0%, rgba(243, 248, 245, 0.95) 70%, #ffffff 100%);
+  box-shadow: 0 12px 32px rgba(5, 56, 32, 0.08);
   border: 1px solid #d7e6dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .subpage-featured-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 94%;
+  max-height: 94%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: auto;
   display: block;
   transition: transform 0.4s ease;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.12));
 }
 
 .subpage-featured-figure:hover .subpage-featured-img {
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 .subpage-img-overlay {
@@ -4183,14 +4190,15 @@ section {
 
 .standalone-grid {
   display: grid;
-  grid-template-columns: 440px 1fr;
-  gap: 40px;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 46px;
+  align-items: start;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1080px) {
   .standalone-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 36px;
   }
 }
 
@@ -4198,22 +4206,40 @@ section {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  position: sticky;
+  top: 90px;
 }
 
 .standalone-main-figure {
   position: relative;
   width: 100%;
-  height: 340px;
-  background: #f1f5f9;
-  border-radius: 12px;
+  height: 460px;
+  min-height: 420px;
+  background: radial-gradient(circle at center, rgba(19, 128, 76, 0.08) 0%, rgba(243, 248, 245, 0.95) 70%, #ffffff 100%);
+  border-radius: 20px;
   overflow: hidden;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #d4e7db;
+  box-shadow: 0 16px 45px rgba(5, 56, 32, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Subpage Image Carousel Viewport & Transitions */
+/* Ambient Frosted Aura matching active image dominant colors */
+.figure-ambient-backdrop {
+  position: absolute;
+  inset: -25px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(34px);
+  opacity: 0.18;
+  transform: scale(1.15);
+  pointer-events: none;
+  transition: background-image 0.5s ease;
+  z-index: 1;
+}
+
+/* Subpage Image Carousel Viewport & Actual Aspect Ratio Preservation */
 .figure-viewport {
   position: relative;
   width: 100%;
@@ -4224,6 +4250,7 @@ section {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 2;
 }
 
 .figure-viewport img,
@@ -4231,14 +4258,19 @@ section {
 .subpage-featured-img {
   grid-column: 1 / -1;
   grid-row: 1 / -1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 94%;
+  max-height: 94%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: auto;
+  display: block;
   opacity: 0;
   visibility: hidden;
-  transform: scale(0.97);
+  transform: scale(0.96);
   transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
   pointer-events: none;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.12));
 }
 
 .figure-viewport img.active,
@@ -4251,26 +4283,31 @@ section {
   z-index: 2;
 }
 
+.standalone-main-figure:hover .standalone-img.active,
+.subpage-featured-figure:hover .subpage-featured-img.active {
+  transform: scale(1.02);
+}
+
 .figure-nav-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(11, 102, 61, 0.2);
   color: var(--green-950);
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 10;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
 .figure-nav-arrow:hover {
@@ -4329,37 +4366,52 @@ section {
 
 .standalone-thumb-strip {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   overflow-x: auto;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
 }
 
 .standalone-thumb-btn,
 .subpage-thumb-btn {
   position: relative;
-  width: 68px;
-  height: 68px;
-  min-width: 68px;
-  border-radius: 8px;
-  border: 2px solid #e2e8f0;
-  background: #f8fafc;
+  width: 82px;
+  height: 60px;
+  min-width: 82px;
+  border-radius: 10px;
+  border: 2px solid #dbe8e0;
+  background: #ffffff;
   overflow: hidden;
   cursor: pointer;
-  padding: 0;
-  transition: all .2s ease;
+  padding: 4px;
+  transition: all .2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.standalone-thumb-btn:hover,
+.subpage-thumb-btn:hover {
+  border-color: #a4d2b7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(11, 102, 61, 0.15);
 }
 
 .standalone-thumb-btn.active,
 .subpage-thumb-btn.active {
   border-color: var(--green-600);
-  box-shadow: 0 0 0 3px rgba(0, 191, 113, 0.2);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.25);
+  background: #f0fdf4;
 }
 
 .standalone-thumb-btn img,
 .subpage-thumb-btn img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin: auto;
   display: block;
 }
 
@@ -4693,7 +4745,8 @@ section {
   }
 
   .standalone-main-figure {
-    height: 260px;
+    height: 310px;
+    min-height: 280px;
   }
 
   .standalone-canonical-bar {

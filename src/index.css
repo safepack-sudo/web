@@ -4394,3 +4394,139 @@ section {
   cursor: pointer;
   border: none;
 }
+
+
+/* ================= Enhanced Subpage Canonical & Metrics Styling ================= */
+.standalone-canonical-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: #f1f8f4;
+  border: 1px solid #cbe6d4;
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin-bottom: 24px;
+}
+
+.canonical-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.canonical-label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #0b663d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.canonical-link {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--green-800);
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color .2s ease;
+  word-break: break-all;
+}
+
+.canonical-link:hover {
+  color: var(--green-950);
+}
+
+.canonical-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.canonical-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #064e3b;
+  background: #d1fae5;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.standalone-metrics-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.metric-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  color: #334155;
+}
+
+.metric-pill i {
+  color: #0b663d;
+  font-size: 0.82rem;
+}
+
+.metric-pill strong {
+  color: #0f172a;
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .standalone-card {
+    padding: 20px 16px;
+  }
+
+  .standalone-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .standalone-product-title {
+    font-size: 1.55rem;
+  }
+
+  .standalone-product-headline {
+    font-size: 0.95rem;
+  }
+
+  .standalone-action-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .standalone-action-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .standalone-main-figure {
+    height: 260px;
+  }
+
+  .standalone-canonical-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

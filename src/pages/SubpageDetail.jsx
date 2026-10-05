@@ -15,7 +15,7 @@ export default function SubpageDetail() {
 
   // Find matching subpage entry from registry
   const matchedEntry = Object.entries(subpageDetailRegistry).find(([key]) => {
-    return slugify(key) === slug;
+    return slugify(key) === slug || key.toLowerCase() === slug?.replace(/-/g, ' ').toLowerCase();
   });
 
   const itemName = matchedEntry ? matchedEntry[0] : slug ? slug.replace(/-/g, ' ').toUpperCase() : 'Product Details';
@@ -36,21 +36,14 @@ export default function SubpageDetail() {
     setTimeout(() => setToastVisible(false), 3500);
   };
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    if (itemData?.image) {
-      setActiveImg(itemData.image);
-    }
-  }, [slug, itemData]);
-
   const displayHeadline = itemData?.headline || `${displayName} — High-Performance Industrial Packaging Solution`;
   const displaySummary = itemData?.summary || `Safepack ${displayName} is engineered with molecular chemical precision and heavy-duty extrusion capabilities up to 4000mm width at Safepack's integrated manufacturing campus in Pune, India.`;
   const displayBadge = itemData?.badge || 'Export Grade';
   const displayHighlights = itemData?.highlights || [
     "Patented formulation tested against international ASTM, DIN & MIL-PRF benchmarks",
-    "Continuous extrusion coating capability up to 4000mm width",
-    "100% compliant with global environmental directives (RoHS, REACH)",
-    "Engineered for demanding overseas container shipping environments"
+    "Continuous extrusion coating capability up to 4000mm width without intermediate seams",
+    "100% compliant with global environmental directives (RoHS, REACH SVHC Free)",
+    "Engineered for demanding overseas container ocean transit environments"
   ];
   const displaySpecs = itemData?.specs || [
     { k: "Manufacturing Width", v: "Up to 4000mm Continuous Width" },
@@ -58,6 +51,60 @@ export default function SubpageDetail() {
     { k: "Standards & Compliance", v: "RoHS / REACH / ISO 9001 Certified" },
     { k: "Export Availability", v: "Worldwide Supply across 40+ Countries" }
   ];
+
+  // Dynamic SEO, Canonical Link, and Schema.org Product Metadata
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (itemData?.image) {
+      setActiveImg(itemData.image);
+    }
+
+    // Dynamic Page Title
+    document.title = `${displayName} | Safepack Industries Ltd. - Industrial Anti-Corrosion Packaging`;
+
+    // Dynamic Meta Description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', displaySummary);
+    }
+
+    // Dynamic Schema.org Product JSON-LD Injection
+    let scriptTag = document.getElementById('product-schema-jsonld');
+    if (!scriptTag) {
+      scriptTag = document.createElement('script');
+      scriptTag.id = 'product-schema-jsonld';
+      scriptTag.type = 'application/ld+json';
+      document.head.appendChild(scriptTag);
+    }
+    scriptTag.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": displayName,
+      "image": [activeImg, ...gallery],
+      "description": displaySummary,
+      "category": categoryTitle,
+      "brand": {
+        "@type": "Brand",
+        "name": "Safepack"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "Safepack Industries Ltd.",
+        "url": "https://safepack.com"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": itemData?.liveUrl || `https://safepack.com/products/${slug}`
+      }
+    });
+
+    return () => {
+      const existingScript = document.getElementById('product-schema-jsonld');
+      if (existingScript) existingScript.remove();
+    };
+  }, [slug, itemData, displayName, displaySummary, categoryTitle, activeImg, gallery]);
 
   const handleInquiryRedirect = () => {
     // Navigate back to home contact section with prefill
@@ -74,7 +121,7 @@ export default function SubpageDetail() {
         <div className="container">
           
           {/* Top Breadcrumb Navigation Bar */}
-          <div className="standalone-breadcrumbs">
+          <nav className="standalone-breadcrumbs" aria-label="Breadcrumb">
             <a href="/" className="crumb-link">
               <i className="fa-solid fa-house"></i> Home
             </a>
@@ -86,19 +133,48 @@ export default function SubpageDetail() {
             <span className="crumb-current">
               {displayName}
             </span>
-          </div>
+          </nav>
 
           {/* Standalone Product Showcase Card */}
-          <div className="standalone-card">
+          <article className="standalone-card">
+            
+            {/* Live Canonical Dossier URL Banner */}
+            <div className="standalone-canonical-bar">
+              <div className="canonical-left">
+                <span className="canonical-label">
+                  <i className="fa-solid fa-link"></i> Live URL Dossier:
+                </span>
+                <a 
+                  href={itemData?.liveUrl || `https://safepack.com/?s=${encodeURIComponent(displayName)}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="canonical-link"
+                  title="Verify official technical specifications on safepack.com"
+                >
+                  <span>{itemData?.liveUrl || `https://safepack.com/products/${slug}`}</span>
+                  <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+              <div className="canonical-right">
+                <span className="canonical-badge">
+                  <i className="fa-solid fa-circle-check"></i> ASTM / MIL-PRF Validated
+                </span>
+                <span className="canonical-badge">
+                  <i className="fa-solid fa-earth-americas"></i> Exporting to 40+ Countries
+                </span>
+              </div>
+            </div>
+
             <div className="standalone-grid">
               
               {/* Left Column: Visual Showcase & Gallery Switcher */}
               <div className="standalone-visual-col">
-                <div className="standalone-main-figure">
+                <figure className="standalone-main-figure">
                   <img 
                     src={activeImg} 
-                    alt={displayName} 
+                    alt={`${displayName} - Safepack Industrial Packaging`} 
                     className="standalone-img"
+                    loading="eager"
                     onError={(e) => {
                       e.target.src = 'https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png';
                     }}
@@ -107,7 +183,7 @@ export default function SubpageDetail() {
                     <i className="fa-solid fa-shield-halved"></i>
                     <span>Verified Technical Grade</span>
                   </div>
-                </div>
+                </figure>
 
                 {/* Multiple Real Angle Thumbnails */}
                 {gallery.length > 0 && (
@@ -116,8 +192,9 @@ export default function SubpageDetail() {
                       className={`standalone-thumb-btn ${activeImg === itemData?.image ? 'active' : ''}`}
                       onClick={() => setActiveImg(itemData?.image)}
                       title="Primary Angle"
+                      aria-label="View primary angle"
                     >
-                      <img src={itemData?.image} alt="Primary angle" />
+                      <img src={itemData?.image} alt={`${displayName} primary view`} />
                     </button>
                     {gallery.map((gImg, gIdx) => (
                       <button 
@@ -125,8 +202,9 @@ export default function SubpageDetail() {
                         className={`standalone-thumb-btn ${activeImg === gImg ? 'active' : ''}`}
                         onClick={() => setActiveImg(gImg)}
                         title={`Angle ${gIdx + 1}`}
+                        aria-label={`View angle ${gIdx + 1}`}
                       >
-                        <img src={gImg} alt={`Angle ${gIdx + 1}`} />
+                        <img src={gImg} alt={`${displayName} angle ${gIdx + 1}`} />
                       </button>
                     ))}
                   </div>
@@ -144,7 +222,7 @@ export default function SubpageDetail() {
                     <i className="fa-solid fa-earth-americas"></i>
                     <div>
                       <strong>Exporting to 40+ Countries</strong>
-                      <span>PAN India and worldwide logistics</span>
+                      <span>PAN India and worldwide logistics network</span>
                     </div>
                   </div>
                 </div>
@@ -162,17 +240,33 @@ export default function SubpageDetail() {
                 )}
               </div>
 
-              {/* Right Column: Title, Headline, Details & Technical Matrix */}
+              {/* Right Column: Hero Headline, Details & Technical Matrix */}
               <div className="standalone-content-col">
-                <div className="standalone-title-block">
+                <header className="standalone-title-block">
                   <span className="standalone-tag-pill">{displayBadge}</span>
                   <h1 className="standalone-product-title">{displayName}</h1>
                   <h3 className="standalone-product-headline">{displayHeadline}</h3>
-                </div>
+                </header>
 
                 <p className="standalone-description">
                   {displaySummary}
                 </p>
+
+                {/* Quick Engineering Trust Bar */}
+                <div className="standalone-metrics-bar">
+                  <div className="metric-pill">
+                    <i className="fa-solid fa-layer-group"></i>
+                    <span><strong>4000mm</strong> Extrusion Width</span>
+                  </div>
+                  <div className="metric-pill">
+                    <i className="fa-solid fa-certificate"></i>
+                    <span><strong>RoHS / REACH</strong> Compliant</span>
+                  </div>
+                  <div className="metric-pill">
+                    <i className="fa-solid fa-shield"></i>
+                    <span><strong>36 Months</strong> Protection</span>
+                  </div>
+                </div>
 
                 {/* Core Engineering Features */}
                 <div className="standalone-features-box">
@@ -220,7 +314,7 @@ export default function SubpageDetail() {
               </div>
 
             </div>
-          </div>
+          </article>
 
         </div>
       </main>

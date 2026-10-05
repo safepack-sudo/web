@@ -10,6 +10,7 @@ export const headerNavSequence = [
     featured: {
       tag: "FLAGSHIP ANTI-CORROSION",
       title: "All Under One Roof",
+      image: "/images/vci-steel-wrap.jpg",
       desc: "Ultramodern manufacturing plant: molecule synthesis, extrusion coating up to 4000mm width.",
       actionText: "Explore VCI Solutions",
       link: "#solutions"
@@ -89,13 +90,13 @@ export const headerNavSequence = [
             name: "VCI Stretch Cling Shrink Films",
             desc: "High-cling automated machine wrapping film",
             spec: "Machine Grade",
-            image: "https://safepack.com/wp-content/uploads/2021/07/vci-films-17-s1.png"
+            image: "https://safepack.com/wp-content/uploads/2021/07/vci-films-17-s1-300x153-1.png"
           },
           {
             name: "VCI Bubble Wrap",
             desc: "Cushioning + active volatile corrosion inhibition",
             spec: "Air Bubble",
-            image: "https://safepack.com/wp-content/uploads/2021/07/vci-films-18-s3.png"
+            image: "https://safepack.com/wp-content/uploads/2021/07/vci-films-18-s3-300x153-1.png"
           },
           {
             name: "VCI Anti Static Film",
@@ -195,6 +196,7 @@ export const headerNavSequence = [
     featured: {
       tag: "TECHNICAL EXTRUSION",
       title: "Up to 4000mm Width",
+      image: "/images/laminate-solutions.jpg",
       desc: "One of the world's widest extrusion coating lines with precision multi-ply lamination.",
       actionText: "View Composites",
       link: "#solutions"
@@ -238,25 +240,25 @@ export const headerNavSequence = [
             name: "Butter Wrapping Paper",
             desc: "Greaseproof vegetable parchment poly-coated laminates",
             spec: "Greaseproof",
-            image: "https://safepack.com/wp-content/uploads/2021/12/pe-coated-paper.jpg"
+            image: "https://safepack.com/wp-content/uploads/2021/07/butter-and-margarine-wrap-39-s1.png"
           },
           {
             name: "Cheese Packaging",
             desc: "Gas-flush barrier films for processed and block cheese",
             spec: "High Barrier",
-            image: "https://safepack.com/wp-content/uploads/2021/11/three-ply.jpg"
+            image: "https://safepack.com/wp-content/uploads/2021/07/cheese-packaging-27-s1.png"
           },
           {
             name: "Lidding Laminate",
             desc: "Peelable heat-seal lidding films for cups & trays",
             spec: "Peelable Seal",
-            image: "https://safepack.com/wp-content/uploads/2021/11/FSPE-Laminate.jpg"
+            image: "https://safepack.com/wp-content/uploads/2021/07/lidding-laminate-36-s1.png"
           },
           {
             name: "Fish & Meat Poultry Packaging",
             desc: "High puncture-resistant freezer barrier pouches",
             spec: "Puncture Proof",
-            image: "https://safepack.com/wp-content/uploads/2021/07/vci-aluminium-bags-25-s1.png"
+            image: "https://safepack.com/wp-content/uploads/2021/07/fish-meat-and-poultry-packaging-13-s1.png"
           }
         ]
       },
@@ -292,19 +294,19 @@ export const headerNavSequence = [
             name: "Nutraceuticals",
             desc: "Light-tight aluminium sachets for powder formulations",
             spec: "Light Proof",
-            image: "https://safepack.com/wp-content/uploads/2021/11/three-ply.jpg"
+            image: "https://safepack.com/wp-content/uploads/2021/07/nutraceuticals-48-s1.png"
           },
           {
             name: "Polycarbonate Medikraft Papers",
             desc: "Sterilization-grade packaging for disposable devices",
             spec: "Medikraft",
-            image: "https://safepack.com/wp-content/uploads/2021/12/pe-coated-paper.jpg"
+            image: "https://safepack.com/wp-content/uploads/2021/07/polycoated-papers-7-s1-1.png"
           },
           {
             name: "Veterinary Products",
             desc: "Extended shelf-life packaging for animal health doses",
             spec: "Pharma Grade",
-            image: "https://safepack.com/wp-content/uploads/2021/11/FSPE-Laminate.jpg"
+            image: "https://safepack.com/wp-content/uploads/2021/07/veterinary-products-8-s1.png"
           }
         ]
       },
@@ -322,7 +324,7 @@ export const headerNavSequence = [
             name: "Scrim Reinforced Films",
             desc: "Tear-resistant multi-layer reinforced construction films",
             spec: "Heavy Scrim",
-            image: "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png"
+            image: "https://safepack.com/wp-content/uploads/2021/07/scrim-reinforced-films-12-s1.png"
           },
           {
             name: "Silicone Release Liners",
@@ -428,6 +430,7 @@ export const headerNavSequence = [
     featured: {
       tag: "FUNCTIONAL CHEMISTRY",
       title: "Patented Formulations",
+      image: "/images/insulation-laminates.jpg",
       desc: "Custom barrier coatings engineered to replace fluorochemicals and non-recyclable plastics.",
       actionText: "View Speciality",
       link: "#solutions"
@@ -477,7 +480,7 @@ export const headerNavSequence = [
             name: "Masking Adhesive Coated Film",
             desc: "Surface protection film leaves zero residue upon peeling",
             spec: "Zero Residue",
-            image: "https://safepack.com/wp-content/uploads/2021/07/vci-films-17-s1.png"
+            image: "https://safepack.com/wp-content/uploads/2021/07/vci-films-17-s1-300x153-1.png"
           },
           {
             name: "Moisture Oil Grease Resistance Kraft",
@@ -549,7 +552,7 @@ export const headerNavSequence = [
             name: "Food",
             desc: "High-definition flexo printed barrier packaging for food items",
             spec: "Food Grade",
-            image: "https://safepack.com/wp-content/uploads/2021/12/pe-coated-paper.jpg"
+            image: "https://safepack.com/wp-content/uploads/2021/07/food-2.jpg"
           },
           {
             name: "Pharmaceuticals",
@@ -597,6 +600,7 @@ export const headerNavSequence = [
     featured: {
       tag: "CIRCULAR INNOVATION",
       title: "Zero Petroleum Plastics",
+      image: "/images/sustainable-packaging.jpg",
       desc: "Completely biodegrades into organic soil within 90-180 days according to EN 13432 & ASTM D6400.",
       actionText: "View Sustainability",
       link: "#sustainability"
@@ -662,6 +666,7 @@ export const headerNavSequence = [
     featured: {
       tag: "GLOBAL AUTHORITY",
       title: "Manufacturing Campus",
+      image: "https://safepack.com/wp-content/uploads/2022/05/Safepack-Solutions.jpg",
       desc: "Molecular synthesis, extrusion coating, blown films, and slitting under one roof in Pune, India.",
       actionText: "About Safepack",
       link: "#about"
@@ -715,6 +720,7 @@ export const headerNavSequence = [
     featured: {
       tag: "INDUSTRY EXPERTISE",
       title: "10,000+ Enterprises",
+      image: "/images/oil-gas-preservation.jpg",
       desc: "From massive continuous steel mills to precision aerospace and sterile healthcare.",
       actionText: "View Applications",
       link: "#industries"

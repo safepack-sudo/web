@@ -255,9 +255,10 @@ export default function Navbar({ activeSection }) {
                         
                         <div className="showcase-image-container">
                           <img 
-                            src={menu.id === 'composites' ? '/images/aluminium-barrier.png' : '/images/vci-steel-wrap.jpg'} 
+                            src={menu.featured?.image || (menu.id === 'composites' ? '/images/laminate-solutions.jpg' : '/images/vci-steel-wrap.jpg')} 
                             alt={menu.featured?.title || 'Safepack Solutions'} 
                             className="showcase-img"
+                            onError={(e) => { e.target.src = '/images/vci-steel-wrap.jpg'; }}
                           />
                         </div>
 

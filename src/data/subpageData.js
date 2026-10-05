@@ -338,7 +338,7 @@ export const subpageDetailRegistry = {
   "VCI Stretch Cling Shrink Films": {
     "name": "VCI Stretch Cling Shrink Films",
     "category": "VCI Anti-Corrosion Range",
-    "image": "https://safepack.com/wp-content/uploads/2021/07/vci-films-17-s1.png",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/vci-films-17-s1-300x153-1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1-500x256.png",
       "https://safepack.com/wp-content/uploads/2021/07/vci-49-hi-min.jpg"
@@ -375,7 +375,7 @@ export const subpageDetailRegistry = {
   "VCI Bubble Wrap": {
     "name": "VCI Bubble Wrap",
     "category": "VCI Anti-Corrosion Range",
-    "image": "https://safepack.com/wp-content/uploads/2021/07/vci-films-18-s3.png",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/vci-films-18-s3-300x153-1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1-500x256.png",
       "https://safepack.com/wp-content/uploads/2021/07/vci-49-hi-min.jpg"
@@ -967,7 +967,7 @@ export const subpageDetailRegistry = {
   "Butter Wrapping Paper": {
     "name": "Butter Wrapping Paper",
     "category": "Paper / Film / Foil Composites",
-    "image": "https://safepack.com/wp-content/uploads/2021/12/pe-coated-paper.jpg",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/butter-and-margarine-wrap-39-s1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2021/11/FSPE-Laminate.jpg",
       "https://safepack.com/wp-content/uploads/2021/11/FSK-Laminate.jpg"
@@ -1004,7 +1004,7 @@ export const subpageDetailRegistry = {
   "Cheese Packaging": {
     "name": "Cheese Packaging",
     "category": "Applications & Specialized Sectors",
-    "image": "https://safepack.com/wp-content/uploads/2021/11/three-ply.jpg",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/cheese-packaging-27-s1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2022/02/bangghner.jpg",
       "https://safepack.com/wp-content/uploads/2022/02/banner-5.jpg"
@@ -1041,7 +1041,7 @@ export const subpageDetailRegistry = {
   "Lidding Laminate": {
     "name": "Lidding Laminate",
     "category": "Paper / Film / Foil Composites",
-    "image": "https://safepack.com/wp-content/uploads/2021/11/FSPE-Laminate.jpg",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/lidding-laminate-36-s1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2021/11/FSPE-Laminate.jpg",
       "https://safepack.com/wp-content/uploads/2021/11/FSK-Laminate.jpg"
@@ -1078,7 +1078,7 @@ export const subpageDetailRegistry = {
   "Fish & Meat Poultry Packaging": {
     "name": "Fish & Meat Poultry Packaging",
     "category": "Applications & Specialized Sectors",
-    "image": "https://safepack.com/wp-content/uploads/2021/07/vci-aluminium-bags-25-s1.png",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/fish-meat-and-poultry-packaging-13-s1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2022/02/bangghner.jpg",
       "https://safepack.com/wp-content/uploads/2022/02/banner-5.jpg"
@@ -1263,7 +1263,7 @@ export const subpageDetailRegistry = {
   "Nutraceuticals": {
     "name": "Nutraceuticals",
     "category": "Applications & Specialized Sectors",
-    "image": "https://safepack.com/wp-content/uploads/2021/11/three-ply.jpg",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/nutraceuticals-48-s1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2022/02/bangghner.jpg",
       "https://safepack.com/wp-content/uploads/2022/02/banner-5.jpg"
@@ -1300,7 +1300,7 @@ export const subpageDetailRegistry = {
   "Polycarbonate Medikraft Papers": {
     "name": "Polycarbonate Medikraft Papers",
     "category": "Paper / Film / Foil Composites",
-    "image": "https://safepack.com/wp-content/uploads/2021/12/pe-coated-paper.jpg",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/polycoated-papers-7-s1-1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2021/11/FSPE-Laminate.jpg",
       "https://safepack.com/wp-content/uploads/2021/11/FSK-Laminate.jpg"
@@ -1337,7 +1337,7 @@ export const subpageDetailRegistry = {
   "Veterinary Products": {
     "name": "Veterinary Products",
     "category": "Applications & Specialized Sectors",
-    "image": "https://safepack.com/wp-content/uploads/2021/11/FSPE-Laminate.jpg",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/veterinary-products-8-s1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2022/02/bangghner.jpg",
       "https://safepack.com/wp-content/uploads/2022/02/banner-5.jpg"
@@ -1411,7 +1411,7 @@ export const subpageDetailRegistry = {
   "Scrim Reinforced Films": {
     "name": "Scrim Reinforced Films",
     "category": "Applications & Specialized Sectors",
-    "image": "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/scrim-reinforced-films-12-s1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2022/02/bangghner.jpg",
       "https://safepack.com/wp-content/uploads/2022/02/banner-5.jpg"
@@ -1818,7 +1818,7 @@ export const subpageDetailRegistry = {
   "Blown Films": {
     "name": "Blown Films",
     "category": "Paper / Film / Foil Composites",
-    "image": "https://safepack.com/wp-content/uploads/2021/07/vci-films-17-s1.png",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/vci-films-17-s1-300x153-1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2021/11/FSPE-Laminate.jpg",
       "https://safepack.com/wp-content/uploads/2021/11/FSK-Laminate.jpg"
@@ -2151,7 +2151,7 @@ export const subpageDetailRegistry = {
   "Masking Adhesive Coated Film": {
     "name": "Masking Adhesive Coated Film",
     "category": "Applications & Specialized Sectors",
-    "image": "https://safepack.com/wp-content/uploads/2021/07/vci-films-17-s1.png",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/vci-films-17-s1-300x153-1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2022/02/bangghner.jpg",
       "https://safepack.com/wp-content/uploads/2022/02/banner-5.jpg"
@@ -2484,7 +2484,7 @@ export const subpageDetailRegistry = {
   "Food": {
     "name": "Food",
     "category": "Applications & Specialized Sectors",
-    "image": "https://safepack.com/wp-content/uploads/2021/12/pe-coated-paper.jpg",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/food-2.jpg",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2022/02/bangghner.jpg",
       "https://safepack.com/wp-content/uploads/2022/02/banner-5.jpg"

@@ -724,13 +724,14 @@ img {
   z-index: 2000;
   box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
   transform: translateX(100%);
-  transition: transform .32s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
+  display: none;
   flex-direction: column;
   overflow: hidden;
+  transition: transform .32s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .mobile-drawer.open {
+  display: flex;
   transform: translateX(0);
 }
 
@@ -3130,6 +3131,26 @@ section {
   letter-spacing: 0.5px;
 }
 
+/* Enhanced Footer Multi-Device Responsiveness */
+@media (max-width: 1024px) {
+  .enhanced-footer .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 680px) {
+  .enhanced-footer .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .footer-bottom-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
+
 /* ================= Toast ================= */
 .toast {
   position: fixed;
@@ -3692,14 +3713,14 @@ section {
 /* Laptop & Medium Screen scaling (<= 1360px) */
 @media (max-width: 1360px) {
   .nav-links { gap: 1px; }
-  .nav-direct-link, .nav-dropdown-btn { font-size: 0.80rem; padding: 0 7px; gap: 4px; }
+  .nav-direct-link, .nav-dropdown-btn { font-size: 0.76rem; padding: 0 5px; gap: 3px; }
   .nav-chip-badge { display: none; } /* Hide badges to preserve clean spacing */
-  .nav-rfq-cta { padding: 0 14px; font-size: 0.82rem; }
+  .nav-rfq-cta { padding: 0 12px; font-size: 0.80rem; }
   .mega-menu-panel { width: min(1050px, calc(100vw - 24px)); }
 }
 
-/* Tablet Landscape & Below (<= 1180px) - Seamless Switch to Mobile Off-Canvas Navigation */
-@media (max-width: 1180px) {
+/* Tablet Landscape & Below (<= 1280px) - Seamless Switch to Mobile Off-Canvas Navigation */
+@media (max-width: 1280px) {
   .nav-links { display: none !important; }
   .mega-menu-panel { display: none !important; }
   .menu-btn { display: grid; }
@@ -3737,6 +3758,22 @@ section {
 @media (max-width: 680px) {
   .container { width: calc(100% - 24px); }
   .topline { padding: 6px 0; font-size: 0.75rem; }
+  .topline-inner {
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+    text-align: center;
+  }
+  .topline-subnav {
+    display: none; /* Secondary links already organized inside mobile off-canvas drawer */
+  }
+  .topline-left {
+    justify-content: center;
+  }
+  .topline .mini-links {
+    justify-content: center;
+    gap: 12px;
+  }
   .topline-chip { font-size: 0.65rem; padding: 2px 6px; }
   .hide-on-sm { display: none !important; }
   
@@ -3754,8 +3791,17 @@ section {
   .floating-card { right: 6px; bottom: -10px; width: 220px; padding: 10px; }
   .floating-card-top { left: 6px; top: 10px; }
   
-  .hero-bottom-navigator { padding: 10px 12px; border-radius: 14px; gap: 10px; }
+  .hero-bottom-navigator { 
+    padding: 10px 12px; 
+    border-radius: 14px; 
+    gap: 8px; 
+    max-width: 100%; 
+    overflow: hidden; 
+  }
   .hero-category-tabs { 
+    min-width: 0;
+    max-width: 100%;
+    flex: 1;
     overflow-x: auto; 
     flex-wrap: nowrap; 
     justify-content: flex-start; 
@@ -3785,6 +3831,8 @@ section {
   
   .cert-row { grid-template-columns: 1fr 1fr; }
   .cert-title { grid-column: 1 / -1; }
+  
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   
   .cta-box { padding: 24px 18px; border-radius: 20px; }
   .form-card { grid-template-columns: 1fr; padding: 20px; }
@@ -4208,6 +4256,9 @@ section {
   gap: 16px;
   position: sticky;
   top: 90px;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .standalone-main-figure {
@@ -4228,12 +4279,13 @@ section {
 /* Ambient Frosted Aura matching active image dominant colors */
 .figure-ambient-backdrop {
   position: absolute;
-  inset: -25px;
+  inset: 0;
+  border-radius: inherit;
   background-size: cover;
   background-position: center;
-  filter: blur(34px);
+  filter: blur(24px);
   opacity: 0.18;
-  transform: scale(1.15);
+  transform: scale(1.04);
   pointer-events: none;
   transition: background-image 0.5s ease;
   z-index: 1;
@@ -4368,6 +4420,8 @@ section {
   display: flex;
   gap: 12px;
   overflow-x: auto;
+  max-width: 100%;
+  min-width: 0;
   padding-bottom: 6px;
   scrollbar-width: thin;
 }

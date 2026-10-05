@@ -67,7 +67,7 @@ export default function Navbar({ activeSection }) {
     };
 
     const handleResize = () => {
-      if (window.innerWidth > 1140 && mobileOpen) {
+      if (window.innerWidth > 1280 && mobileOpen) {
         setMobileOpen(false);
       }
     };

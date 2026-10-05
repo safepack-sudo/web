@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { subpageDetailRegistry } from '../data/subpageData';
 
 export default function SubpageDrawer({ item, categoryTitle, onClose, onPreFillRfq }) {
@@ -7,14 +7,63 @@ export default function SubpageDrawer({ item, categoryTitle, onClose, onPreFillR
   // Look up rich registered details or fall back to item props
   const richData = subpageDetailRegistry[item.name] || {};
   const displayName = richData.name || item.name;
-  const initialImage = richData.image || item.image || "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png";
-  const [activeImg, setActiveImg] = useState(initialImage);
-  const gallery = richData.gallery || [];
 
-  // Reset active image whenever item changes
+  // Assemble full distinct gallery list for auto-sliding
+  const galleryList = useMemo(() => {
+    const list = [];
+    const mainImg = richData.image || item.image;
+    if (mainImg) list.push(mainImg);
+    if (richData.gallery && Array.isArray(richData.gallery)) {
+      richData.gallery.forEach(img => {
+        if (!list.includes(img)) list.push(img);
+      });
+    }
+    return list.length > 0 ? list : ["https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png"];
+  }, [richData, item]);
+
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  // Reset active index whenever item changes
   useEffect(() => {
-    setActiveImg(richData.image || item.image || "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png");
-  }, [item, richData.image]);
+    setActiveIdx(0);
+  }, [item]);
+
+  // Robust Auto-sliding interval (3.8s)
+  useEffect(() => {
+    if (galleryList.length <= 1 || isPaused) return;
+    const interval = setInterval(() => {
+      setActiveIdx(prev => (prev + 1) % galleryList.length);
+    }, 3800);
+    return () => clearInterval(interval);
+  }, [galleryList.length, isPaused, activeIdx]);
+
+  const nextImg = (e) => {
+    if (e) e.stopPropagation();
+    setActiveIdx(prev => (prev + 1) % galleryList.length);
+  };
+
+  const prevImg = (e) => {
+    if (e) e.stopPropagation();
+    setActiveIdx(prev => (prev - 1 + galleryList.length) % galleryList.length);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 45) nextImg();
+    else if (diff < -45) prevImg();
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
 
   const displayHeadline = richData.headline || item.desc || `${displayName} - Advanced Industrial Packaging Solution`;
   const displaySummary = richData.summary || `${item.desc}. Engineered with precision molecular formulation and heavy-duty extrusion capabilities up to 4000mm width at Safepack's integrated manufacturing facilities.`;
@@ -88,40 +137,83 @@ export default function SubpageDrawer({ item, categoryTitle, onClose, onPreFillR
         {/* Modal Main Two-Column Layout */}
         <div className="subpage-dialog-content">
           
-          {/* Left Column: Visual Showcase, Gallery & Live Link */}
+          {/* Left Column: Visual Showcase, Auto-Sliding Gallery & Live Link */}
           <div className="subpage-visual-column">
-            <div className="subpage-featured-figure">
-              <img 
-                src={activeImg} 
-                alt={displayName} 
-                className="subpage-featured-img"
-                onError={(e) => {
-                  e.target.src = "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png";
-                }}
-              />
+            <figure 
+              className="subpage-featured-figure"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              aria-label="Product Showcase Carousel"
+            >
+              <div className="figure-viewport">
+                {galleryList.map((img, idx) => (
+                  <img 
+                    key={idx}
+                    src={img} 
+                    alt={`${displayName} view ${idx + 1}`} 
+                    className={`subpage-featured-img ${idx === activeIdx ? 'active' : ''}`}
+                    onError={(e) => {
+                      e.target.src = "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png";
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* Navigation Arrows for Gallery */}
+              {galleryList.length > 1 && (
+                <>
+                  <button 
+                    type="button" 
+                    className="figure-nav-arrow figure-nav-prev" 
+                    onClick={prevImg}
+                    aria-label="Previous image"
+                  >
+                    <i className="fa-solid fa-chevron-left"></i>
+                  </button>
+                  <button 
+                    type="button" 
+                    className="figure-nav-arrow figure-nav-next" 
+                    onClick={nextImg}
+                    aria-label="Next image"
+                  >
+                    <i className="fa-solid fa-chevron-right"></i>
+                  </button>
+
+                  <div className="figure-slide-badge">
+                    <i className="fa-solid fa-images"></i> {activeIdx + 1} / {galleryList.length}
+                  </div>
+                </>
+              )}
+
               <div className="subpage-img-overlay">
                 <span className="subpage-source-pill">
                   <i className="fa-solid fa-check-circle"></i> Official Safepack Product
                 </span>
               </div>
-            </div>
+            </figure>
 
-            {/* Thumbnail Gallery if multiple real photos exist */}
-            {gallery.length > 0 && (
-              <div className="subpage-gallery-thumbs">
-                <button 
-                  className={`subpage-thumb-btn ${activeImg === richData.image ? 'active' : ''}`}
-                  onClick={() => setActiveImg(richData.image)}
-                >
-                  <img src={richData.image} alt="Primary angle" />
-                </button>
-                {gallery.map((gImg, gIdx) => (
+            {/* Thumbnail Gallery with Active Progress Bar */}
+            {galleryList.length > 1 && (
+              <div 
+                className="subpage-gallery-thumbs"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+              >
+                {galleryList.map((gImg, gIdx) => (
                   <button 
                     key={gIdx}
-                    className={`subpage-thumb-btn ${activeImg === gImg ? 'active' : ''}`}
-                    onClick={() => setActiveImg(gImg)}
+                    className={`subpage-thumb-btn ${activeIdx === gIdx ? 'active' : ''}`}
+                    onClick={() => setActiveIdx(gIdx)}
+                    title={`View angle ${gIdx + 1} of ${galleryList.length}`}
+                    aria-label={`View angle ${gIdx + 1}`}
                   >
-                    <img src={gImg} alt={`Gallery angle ${gIdx + 1}`} />
+                    <img src={gImg} alt={`${displayName} angle ${gIdx + 1}`} />
+                    {activeIdx === gIdx && (
+                      <span key={activeIdx} className={`thumb-progress-bar ${isPaused ? 'paused' : ''}`}></span>
+                    )}
                   </button>
                 ))}
               </div>

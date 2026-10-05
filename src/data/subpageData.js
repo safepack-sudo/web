@@ -42,7 +42,7 @@ export const subpageDetailRegistry = {
   "VCI Fabric": {
     "name": "VCI Fabric",
     "category": "VCI Anti-Corrosion Range",
-    "image": "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1-500x256.png",
+    "image": "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1-500x256.png",
       "https://safepack.com/wp-content/uploads/2021/07/vci-49-hi-min.jpg"
@@ -156,7 +156,7 @@ export const subpageDetailRegistry = {
     "image": "https://safepack.com/wp-content/uploads/2021/07/vci-49-hi-min.jpg",
     "gallery": [
       "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1-500x256.png",
-      "https://safepack.com/wp-content/uploads/2021/07/vci-49-hi-min.jpg"
+      "https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png"
     ],
     "badge": "MIL-PRF & RoHS Validated",
     "headline": "VCI Reinforced Paper — High-Performance Industrial Packaging Solution",

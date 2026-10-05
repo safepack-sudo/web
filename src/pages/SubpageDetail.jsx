@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { subpageDetailRegistry } from '../data/subpageData';
 import { slugify } from '../utils/slugify';
@@ -23,9 +23,63 @@ export default function SubpageDetail() {
 
   const displayName = itemData?.name || itemName;
   const categoryTitle = itemData?.category || 'Safepack Technical Range';
-  const initialImage = itemData?.image || 'https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png';
-  const [activeImg, setActiveImg] = useState(initialImage);
-  const gallery = itemData?.gallery || [];
+  
+  // Assemble full distinct gallery list for auto-sliding
+  const galleryList = useMemo(() => {
+    const list = [];
+    if (itemData?.image) list.push(itemData.image);
+    if (itemData?.gallery && Array.isArray(itemData.gallery)) {
+      itemData.gallery.forEach(img => {
+        if (!list.includes(img)) list.push(img);
+      });
+    }
+    return list.length > 0 ? list : ['https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png'];
+  }, [itemData]);
+
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  // Reset active slide index whenever route slug or item changes
+  useEffect(() => {
+    setActiveIdx(0);
+  }, [slug, itemData]);
+
+  // Robust auto-sliding carousel timer (3.8s interval)
+  useEffect(() => {
+    if (galleryList.length <= 1 || isPaused) return;
+    const interval = setInterval(() => {
+      setActiveIdx(prev => (prev + 1) % galleryList.length);
+    }, 3800);
+    return () => clearInterval(interval);
+  }, [galleryList.length, isPaused, activeIdx]);
+
+  const nextImg = (e) => {
+    if (e) e.stopPropagation();
+    setActiveIdx(prev => (prev + 1) % galleryList.length);
+  };
+
+  const prevImg = (e) => {
+    if (e) e.stopPropagation();
+    setActiveIdx(prev => (prev - 1 + galleryList.length) % galleryList.length);
+  };
+
+  // Touch Swipe Handlers for mobile
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 45) nextImg();
+    else if (diff < -45) prevImg();
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
 
   const [toastMessage, setToastMessage] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
@@ -55,9 +109,6 @@ export default function SubpageDetail() {
   // Dynamic SEO, Canonical Link, and Schema.org Product Metadata
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
-    if (itemData?.image) {
-      setActiveImg(itemData.image);
-    }
 
     // Dynamic Page Title
     document.title = `${displayName} | Safepack Industries Ltd. - Industrial Anti-Corrosion Packaging`;
@@ -80,7 +131,7 @@ export default function SubpageDetail() {
       "@context": "https://schema.org",
       "@type": "Product",
       "name": displayName,
-      "image": [activeImg, ...gallery],
+      "image": galleryList,
       "description": displaySummary,
       "category": categoryTitle,
       "brand": {
@@ -104,7 +155,7 @@ export default function SubpageDetail() {
       const existingScript = document.getElementById('product-schema-jsonld');
       if (existingScript) existingScript.remove();
     };
-  }, [slug, itemData, displayName, displaySummary, categoryTitle, activeImg, gallery]);
+  }, [slug, itemData, displayName, displaySummary, categoryTitle, galleryList]);
 
   const handleInquiryRedirect = () => {
     // Navigate back to home contact section with prefill
@@ -167,44 +218,83 @@ export default function SubpageDetail() {
 
             <div className="standalone-grid">
               
-              {/* Left Column: Visual Showcase & Gallery Switcher */}
+              {/* Left Column: Visual Showcase & Auto-Sliding Gallery Switcher */}
               <div className="standalone-visual-col">
-                <figure className="standalone-main-figure">
-                  <img 
-                    src={activeImg} 
-                    alt={`${displayName} - Safepack Industrial Packaging`} 
-                    className="standalone-img"
-                    loading="eager"
-                    onError={(e) => {
-                      e.target.src = 'https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png';
-                    }}
-                  />
+                <figure 
+                  className="standalone-main-figure"
+                  onMouseEnter={() => setIsPaused(true)}
+                  onMouseLeave={() => setIsPaused(false)}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                  aria-label="Product Images Carousel"
+                >
+                  <div className="figure-viewport">
+                    {galleryList.map((img, idx) => (
+                      <img 
+                        key={idx}
+                        src={img} 
+                        alt={`${displayName} view ${idx + 1}`} 
+                        className={`standalone-img ${idx === activeIdx ? 'active' : ''}`}
+                        loading="eager"
+                        onError={(e) => {
+                          e.target.src = 'https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png';
+                        }}
+                      />
+                    ))}
+                  </div>
+
+                  {/* Navigation Arrows for Gallery */}
+                  {galleryList.length > 1 && (
+                    <>
+                      <button 
+                        type="button" 
+                        className="figure-nav-arrow figure-nav-prev" 
+                        onClick={prevImg}
+                        aria-label="Previous image"
+                      >
+                        <i className="fa-solid fa-chevron-left"></i>
+                      </button>
+                      <button 
+                        type="button" 
+                        className="figure-nav-arrow figure-nav-next" 
+                        onClick={nextImg}
+                        aria-label="Next image"
+                      >
+                        <i className="fa-solid fa-chevron-right"></i>
+                      </button>
+
+                      <div className="figure-slide-badge">
+                        <i className="fa-solid fa-images"></i> {activeIdx + 1} / {galleryList.length}
+                      </div>
+                    </>
+                  )}
+
                   <div className="standalone-badge-chip">
                     <i className="fa-solid fa-shield-halved"></i>
                     <span>Verified Technical Grade</span>
                   </div>
                 </figure>
 
-                {/* Multiple Real Angle Thumbnails */}
-                {gallery.length > 0 && (
-                  <div className="standalone-thumb-strip">
-                    <button 
-                      className={`standalone-thumb-btn ${activeImg === itemData?.image ? 'active' : ''}`}
-                      onClick={() => setActiveImg(itemData?.image)}
-                      title="Primary Angle"
-                      aria-label="View primary angle"
-                    >
-                      <img src={itemData?.image} alt={`${displayName} primary view`} />
-                    </button>
-                    {gallery.map((gImg, gIdx) => (
+                {/* Multiple Real Angle Thumbnails with Active Progress Bar */}
+                {galleryList.length > 1 && (
+                  <div 
+                    className="standalone-thumb-strip"
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                  >
+                    {galleryList.map((gImg, gIdx) => (
                       <button 
                         key={gIdx}
-                        className={`standalone-thumb-btn ${activeImg === gImg ? 'active' : ''}`}
-                        onClick={() => setActiveImg(gImg)}
-                        title={`Angle ${gIdx + 1}`}
+                        className={`standalone-thumb-btn ${activeIdx === gIdx ? 'active' : ''}`}
+                        onClick={() => setActiveIdx(gIdx)}
+                        title={`View angle ${gIdx + 1} of ${galleryList.length}`}
                         aria-label={`View angle ${gIdx + 1}`}
                       >
                         <img src={gImg} alt={`${displayName} angle ${gIdx + 1}`} />
+                        {activeIdx === gIdx && (
+                          <span key={activeIdx} className={`thumb-progress-bar ${isPaused ? 'paused' : ''}`}></span>
+                        )}
                       </button>
                     ))}
                   </div>

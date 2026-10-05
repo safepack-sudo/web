@@ -1,8 +1,8 @@
 import { spawn } from 'child_process';
 
 const CHROME_PATH = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
-const PORT = 9230;
-const BASE_URL = "http://localhost:3002";
+const PORT = 9235;
+const BASE_URL = "http://localhost:3001";
 
 const testRoutes = [
   { path: '/', label: 'Home Page' },

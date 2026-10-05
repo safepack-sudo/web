@@ -396,7 +396,7 @@ export const headerNavSequence = [
             name: "Blown Films",
             desc: "High-clarity technical films for conversion & lamination",
             spec: "Custom Resin",
-            image: "https://safepack.com/wp-content/uploads/2021/07/vci-films-17-s1.png"
+            image: "https://safepack.com/wp-content/uploads/2021/07/vci-films-17-s1-300x153-1.png"
           },
           {
             name: "Ream Wrapper",

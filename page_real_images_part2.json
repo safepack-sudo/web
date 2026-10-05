@@ -1,0 +1,64 @@
+{
+  "Crepe Paper": {
+    "url": "https://safepack.com/products/speciality-products/crepe-paper-packaging/",
+    "status": 404,
+    "images": []
+  },
+  "Corrugation Liners": {
+    "url": "https://safepack.com/products/multilayer-packaging-solutions/extrusion-laminated-products/corrugation-liners/",
+    "status": 200,
+    "images": [
+      "https://safepack.com/wp-content/uploads/2021/07/corrugation-liners-32-s1.png",
+      "https://safepack.com/wp-content/uploads/2021/07/corrugation-liners-32-s1-300x153.png",
+      "https://safepack.com/wp-content/uploads/2021/07/corrugation-liners-32-s1-500x256.png",
+      "https://safepack.com/wp-content/uploads/2021/07/corrugation-liners-32-s2.png",
+      "https://safepack.com/wp-content/uploads/2021/07/corrugation-liners-32-s2-300x153.png"
+    ]
+  },
+  "Multiwall Sack Liner": {
+    "url": "https://safepack.com/products/multilayer-packaging-solutions/extrusion-laminated-products/multiwall-sack-liner/",
+    "status": 301,
+    "images": []
+  },
+  "Thermal Blanket": {
+    "url": "https://safepack.com/products/speciality-products/thermal-blanket-laminate/",
+    "status": 200,
+    "images": [
+      "https://safepack.com/wp-content/uploads/2021/07/thermal-blanket-laminate-38-s2.png",
+      "https://safepack.com/wp-content/uploads/2021/07/thermal-blanket-laminate-38-s2-300x153.png",
+      "https://safepack.com/wp-content/uploads/2021/07/thermal-blanket-laminate-38-s2-500x256.png"
+    ]
+  },
+  "Silicone Release": {
+    "url": "https://safepack.com/products/speciality-products/silicone-release-liners/",
+    "status": 301,
+    "images": []
+  },
+  "VCI Emitter": {
+    "url": "https://safepack.com/products/vci-packaging/vci-emitting-systems/",
+    "status": 200,
+    "images": [
+      "https://safepack.com/wp-content/uploads/2021/07/vci-emitter-56-s1.png",
+      "https://safepack.com/wp-content/uploads/2021/07/vci-emitter-56-s1-300x153.png",
+      "https://safepack.com/wp-content/uploads/2021/07/vci-emitter-56-s1-500x256.png",
+      "https://safepack.com/wp-content/uploads/2021/07/vci-emitter-56-s2.png",
+      "https://safepack.com/wp-content/uploads/2021/07/vci-emitter-56-s2-300x153.png"
+    ]
+  },
+  "VCI Oil Additives": {
+    "url": "https://safepack.com/products/vci-packaging/vci-liquids-oils/vci-oil-additives/",
+    "status": 404,
+    "images": []
+  },
+  "Ream Wrapper": {
+    "url": "https://safepack.com/products/multilayer-packaging-solutions/extrusion-laminated-products/ream-wrapper/",
+    "status": 200,
+    "images": [
+      "https://safepack.com/wp-content/uploads/2021/07/ream-wrapper-7-s1.png",
+      "https://safepack.com/wp-content/uploads/2021/07/ream-wrapper-7-s1-300x153.png",
+      "https://safepack.com/wp-content/uploads/2021/07/ream-wrapper-7-s1-500x256.png",
+      "https://safepack.com/wp-content/uploads/2021/07/ream-wrapper-7-s2.png",
+      "https://safepack.com/wp-content/uploads/2021/07/ream-wrapper-7-s2-300x153.png"
+    ]
+  }
+}

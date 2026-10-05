@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safepack 2.0 | Next-Gen Industrial Packaging & Anti-Corrosion Platform</title>
+  <meta name="description" content="Safepack 2.0 - High-performance VCI packaging, barrier laminates, and sustainable compostable solutions. Interactive Product Wizard and technical portal." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="modern-styles.css" />
+</head>
+<body>
+
+  <!-- Top Glass Header -->
+  <header class="modern-header" id="navbar">
+    <div class="container nav-wrap">
+      <a href="modern-ui.html" class="brand-link">
+        <img src="images/logo.png" alt="Safepack 2.0" class="brand-img" onerror="this.src='https://safepack.com/wp-content/uploads/2021/07/logo-1-1.png'">
+        <span class="version-tag">UI 2.0 NEXT</span>
+      </a>
+
+      <nav class="modern-nav">
+        <ul class="nav-links">
+          <li><a href="#wizard" class="nav-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Packaging Wizard</a></li>
+          <li><a href="#solutions" class="nav-item">Solutions</a></li>
+          <li><a href="#layer-tech" class="nav-item">Layer Engineering</a></li>
+          <li><a href="#sustainability" class="nav-item">Eco Calculator</a></li>
+          <li><a href="#tds" class="nav-item">TDS Portal</a></li>
+          <li><a href="index.html" class="nav-item nav-badge-link"><i class="fa-solid fa-arrow-left"></i> View Classic Clone</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta-group">
+        <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="#rfq-configurator" class="btn btn-glow">
+          <span>Request Smart RFQ</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section with Industrial Bento Grid & 3D Layer Visualizer -->
+  <section class="modern-hero">
+    <div class="container hero-grid">
+      
+      <!-- Left Hero Pitch -->
+      <div class="hero-left">
+        <div class="hero-chip">
+          <span class="chip-dot"></span>
+          <span>Global Leader in Green VCI & Technical Laminates</span>
+        </div>
+        
+        <h1 class="hero-headline">
+          Engineered Protection for <span class="gradient-text">Zero Corrosion</span> Global Transit.
+        </h1>
+        
+        <p class="hero-subtext">
+          Safepack manufactures 500+ specialized barrier laminates and non-toxic Green VCI chemistry. From molecule synthesis to 4000mm extrusion coating, we protect critical metal and industrial assets across 40+ countries.
+        </p>
+
+        <div class="hero-action-row">
+          <a href="#wizard" class="btn btn-primary-glow btn-lg">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Launch Product Recommender
+          </a>
+          <a href="#layer-tech" class="btn btn-glass btn-lg">
+            <i class="fa-solid fa-layer-group"></i> Explore 5-Ply Anatomy
+          </a>
+        </div>
+
+        <div class="hero-proof-bar">
+          <div class="proof-item">
+            <strong>100+</strong>
+            <span>Years of Trust</span>
+          </div>
+          <div class="proof-divider"></div>
+          <div class="proof-item">
+            <strong>4000<small>mm</small></strong>
+            <span>Extrusion Width</span>
+          </div>
+          <div class="proof-divider"></div>
+          <div class="proof-item">
+            <strong>40+</strong>
+            <span>Export Nations</span>
+          </div>
+          <div class="proof-divider"></div>
+          <div class="proof-item">
+            <strong>100%</strong>
+            <span>RoHS & REACH</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Interactive Layer Card -->
+      <div class="hero-right">
+        <div class="interactive-hero-card">
+          <div class="card-header-bar">
+            <div class="indicator-group">
+              <span class="dot-red"></span>
+              <span class="dot-yellow"></span>
+              <span class="dot-green"></span>
+            </div>
+            <span class="card-title-sm"><i class="fa-solid fa-shield-halved"></i> Active VCI Molecular Barrier Simulation</span>
+          </div>
+
+          <div class="hero-visual-frame">
+            <img src="images/banner-1.png" alt="Safepack Green VCI Packaging" class="hero-main-img" onerror="this.src='https://safepack.com/wp-content/uploads/2021/10/banner-1-41-si-1.png'">
+            
+            <div class="floating-stat-badge stat-badge-1">
+              <i class="fa-solid fa-shield-virus"></i>
+              <div>
+                <small>Surface Passivation</small>
+                <strong>99.9% Rust Inhibition</strong>
+              </div>
+            </div>
+
+            <div class="floating-stat-badge stat-badge-2">
+              <i class="fa-solid fa-seedling"></i>
+              <div>
+                <small>Nitrite-Free</small>
+                <strong>Eco-Safe Chemistry</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-quick-actions">
+            <span><i class="fa-solid fa-circle-check"></i> Ferrous & Non-Ferrous Safe</span>
+            <span><i class="fa-solid fa-circle-check"></i> High Tensile Scrim</span>
+            <span><i class="fa-solid fa-circle-check"></i> 3-Year Shelf Life</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Client Trust Marquee -->
+  <section class="trust-marquee-section">
+    <div class="container marquee-container">
+      <p class="marquee-label">Trusted by Engineering & Steel Giants Worldwide</p>
+      <div class="marquee-track">
+        <div class="marquee-item"><img src="images/client-tatasteel.jpg" alt="Tata Steel"></div>
+        <div class="marquee-item"><img src="images/client-saint-gobain.jpg" alt="Saint Gobain"></div>
+        <div class="marquee-item"><img src="images/client-lt.jpg" alt="L&T"></div>
+        <div class="marquee-item"><img src="images/client-skf.jpg" alt="SKF"></div>
+        <div class="marquee-item"><img src="images/client-honda.jpg" alt="Honda"></div>
+        <div class="marquee-item"><img src="images/client-piramal.jpg" alt="Piramal"></div>
+        <div class="marquee-item"><img src="images/client-mankind.jpg" alt="Mankind"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive AI/Logic Packaging Recommendation Wizard -->
+  <section class="wizard-section" id="wizard">
+    <div class="container">
+      <div class="section-title-wrap text-center">
+        <span class="sub-badge"><i class="fa-solid fa-compass"></i> Smart Decision Engine</span>
+        <h2>Interactive Packaging Selection Wizard</h2>
+        <p>Select your metal type, packaging mode, and shipment duration to compute the exact recommended VCI barrier system, dosage, and specs.</p>
+      </div>
+
+      <div class="wizard-box">
+        <div class="wizard-inputs">
+          
+          <div class="wizard-step">
+            <label class="wizard-label"><i class="fa-solid fa-cubes"></i> 1. Select Metal / Substrate</label>
+            <div class="pill-selector" id="metalSelector">
+              <button class="pill-opt active" data-val="steel">Carbon Steel / Coils</button>
+              <button class="pill-opt" data-val="copper">Copper / Brass / Bronze</button>
+              <button class="pill-opt" data-val="aluminum">Aluminium & Alloys</button>
+              <button class="pill-opt" data-val="multimetal">Multi-Metal Assemblies</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label class="wizard-label"><i class="fa-solid fa-ship"></i> 2. Transit Mode & Climate</label>
+            <div class="pill-selector" id="transitSelector">
+              <button class="pill-opt active" data-val="ocean">Transoceanic Container (High Salinity)</button>
+              <button class="pill-opt" data-val="air">Air Cargo / High Altitude</button>
+              <button class="pill-opt" data-val="land">Domestic Road / Rail Freight</button>
+              <button class="pill-opt" data-val="storage">Long-Term Plant Mothballing</button>
+            </div>
+          </div>
+
+          <div class="wizard-step">
+            <label class="wizard-label"><i class="fa-solid fa-clock"></i> 3. Required Protection Duration</label>
+            <div class="pill-selector" id="durationSelector">
+              <button class="pill-opt" data-val="6m">Up to 6 Months</button>
+              <button class="pill-opt active" data-val="12m">12 to 24 Months</button>
+              <button class="pill-opt" data-val="36m">24 to 36+ Months</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Dynamic Recommendation Card -->
+        <div class="wizard-output-card" id="wizardOutput">
+          <div class="output-header">
+            <span class="rec-tag"><i class="fa-solid fa-check-double"></i> Optimal Packaging Solution</span>
+            <h3 id="recTitle">Safepack VCI Steel Wrap (Heavy Duty Woven Fabric Reinforced)</h3>
+          </div>
+
+          <p id="recDesc" class="rec-desc">
+            Multi-layer co-extrusion with high-tensile HDPE scrim and concentrated Green VCI amine formulation. Engineered specifically to withstand severe ocean condensation and rough container transit without tearing.
+          </p>
+
+          <div class="rec-specs-grid" id="recSpecs">
+            <div class="spec-tile">
+              <span class="spec-k">VCI Type</span>
+              <strong class="spec-v" id="specVci">Ferrous Multi-Layer VCI</strong>
+            </div>
+            <div class="spec-tile">
+              <span class="spec-k">Tensile Strength</span>
+              <strong class="spec-v" id="specTensile">MD > 750 N / CD > 600 N</strong>
+            </div>
+            <div class="spec-tile">
+              <span class="spec-k">WVTR Barrier</span>
+              <strong class="spec-v" id="specWvtr">&lt; 0.5 g/m²/day</strong>
+            </div>
+            <div class="spec-tile">
+              <span class="spec-k">Standard Widths</span>
+              <strong class="spec-v" id="specWidth">Up to 3000mm / 4000mm</strong>
+            </div>
+          </div>
+
+          <div class="output-actions">
+            <button class="btn btn-primary" onclick="requestWizardSpec()"><i class="fa-solid fa-file-arrow-down"></i> Request TDS & Custom Samples</button>
+            <a href="#rfq-configurator" class="btn btn-glass">Customize Dimensions & RFQ</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Layer Engineering Visualizer -->
+  <section class="layer-section" id="layer-tech">
+    <div class="container">
+      <div class="section-title-wrap text-center">
+        <span class="sub-badge"><i class="fa-solid fa-microscope"></i> In-House Engineering</span>
+        <h2>Multilayer Co-Extrusion Anatomy</h2>
+        <p>Explore the microscopic cross-section of Safepack's 5-ply barrier laminates engineered for ultimate burst resistance and zero moisture ingress.</p>
+      </div>
+
+      <div class="layer-visualizer-grid">
+        
+        <!-- Interactive Layers List -->
+        <div class="layers-nav">
+          <div class="layer-nav-item active" data-layer="5">
+            <span class="layer-num">Layer 5</span>
+            <div class="layer-info">
+              <h4>Virgin Polymer Outer Shell</h4>
+              <p>UV stabilized, tear-resistant outer protective skin.</p>
+            </div>
+          </div>
+          <div class="layer-nav-item" data-layer="4">
+            <span class="layer-num">Layer 4</span>
+            <div class="layer-info">
+              <h4>Woven HDPE / PP Fabric Reinforcement</h4>
+              <p>Extreme puncture resistance for sharp steel coils and heavy machinery.</p>
+            </div>
+          </div>
+          <div class="layer-nav-item" data-layer="3">
+            <span class="layer-num">Layer 3</span>
+            <div class="layer-info">
+              <h4>Co-Extruded Polyethylene Tie Layer</h4>
+              <p>Homogeneous thermal bonding preventing any delamination.</p>
+            </div>
+          </div>
+          <div class="layer-nav-item" data-layer="2">
+            <span class="layer-num">Layer 2</span>
+            <div class="layer-info">
+              <h4>High-Density Kraft Paper Substrate</h4>
+              <p>Absorbs residual moisture and acts as stable chemical carrier.</p>
+            </div>
+          </div>
+          <div class="layer-nav-item" data-layer="1">
+            <span class="layer-num">Layer 1</span>
+            <div class="layer-info">
+              <h4>Active Green VCI Molecular Impregnation</h4>
+              <p>Continuously releases passivating ions protecting metal surfaces in 360°.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Layer Preview Card -->
+        <div class="layer-preview-card" id="layerDetailCard">
+          <div class="layer-graphic">
+            <div class="layer-bar l5">5. Outer UV Poly Skin</div>
+            <div class="layer-bar l4">4. High Tensile Woven Fabric</div>
+            <div class="layer-bar l3">3. Extrusion Bonding Tie Layer</div>
+            <div class="layer-bar l2">2. FSC Kraft Moisture Buffer</div>
+            <div class="layer-bar l1 active-vci">1. Active VCI Chemical Matrix</div>
+          </div>
+
+          <div class="layer-detail-body">
+            <span class="layer-tag" id="layerTag">Layer 5 Focus</span>
+            <h3 id="layerHeading">Virgin Polymer Outer Shell (UV & Weather Shield)</h3>
+            <p id="layerText">
+              Specialized masterbatch formulation infused with anti-UV stabilizers and hydrophobic barriers, safeguarding packed metal cargo from intense tropical sun, sea spray, and rainstorms during open-deck port storage.
+            </p>
+            <div class="spec-pills">
+              <span><i class="fa-solid fa-sun"></i> 24-Month UV Resistance</span>
+              <span><i class="fa-solid fa-water"></i> 100% Water Impermeable</span>
+              <span><i class="fa-solid fa-print"></i> Custom Logo 3-Color Print</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Sustainability & Carbon Savings Calculator -->
+  <section class="sustainability-section" id="sustainability">
+    <div class="container">
+      <div class="sustainability-card">
+        <div class="sust-left">
+          <span class="sub-badge eco-badge"><i class="fa-solid fa-seedling"></i> Sustainable Packaging 2.0</span>
+          <h2>Calculate Your Environmental Impact</h2>
+          <p>Switching from conventional petroleum plastics to Safepack Bio-Safe & PLA compostable packaging significantly slashes carbon footprint and landfill waste.</p>
+          
+          <div class="calc-input-group">
+            <label for="packagingTonnage">Annual Packaging Material Consumption (Metric Tonnes):</label>
+            <input type="range" id="packagingTonnage" min="5" max="500" value="50" step="5" />
+            <div class="range-val"><span id="tonnageDisplay">50</span> Tonnes / Year</div>
+          </div>
+        </div>
+
+        <div class="sust-right">
+          <div class="carbon-results-grid">
+            <div class="carbon-box">
+              <i class="fa-solid fa-cloud-arrow-down"></i>
+              <strong id="co2Savings">115.0</strong>
+              <span>Tonnes CO₂ Saved</span>
+            </div>
+            <div class="carbon-box">
+              <i class="fa-solid fa-recycle"></i>
+              <strong id="plasticDiverted">50.0</strong>
+              <span>Tonnes Plastic Diverted</span>
+            </div>
+            <div class="carbon-box">
+              <i class="fa-solid fa-tree"></i>
+              <strong id="treesEquivalent">5,225</strong>
+              <span>Tree Seedlings Equivalent</span>
+            </div>
+          </div>
+          <div class="sust-cta">
+            <a href="#rfq-configurator" class="btn btn-primary-glow btn-block">Request Bio-Safe Packaging Transition Plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modern Bento Product Grid -->
+  <section class="bento-products-section" id="solutions">
+    <div class="container">
+      <div class="section-title-wrap text-center">
+        <span class="sub-badge">Complete Portfolio</span>
+        <h2>Engineered Packaging Solutions</h2>
+        <p>Click any solution to view live technical specifications, applications, and instant data sheets.</p>
+      </div>
+
+      <div class="bento-grid">
+        
+        <!-- Bento 1: Large VCI Card -->
+        <div class="bento-item bento-large">
+          <img src="images/vci-steel-wrap.jpg" alt="VCI Steel Wrap" class="bento-bg-img" onerror="this.src='https://safepack.com/wp-content/uploads/2021/07/vci-49-hi-min.jpg'">
+          <div class="bento-overlay">
+            <span class="bento-tag">Flagship Solution</span>
+            <h3>VCI Steel Wrap & Anti-Rust Films</h3>
+            <p>Non-toxic VCI chemicals continuously passivate ferrous and non-ferrous surfaces for up to 36 months in harsh maritime transit.</p>
+            <div class="bento-meta">
+              <span>Width: Up to 4000mm</span>
+              <span>RoHS/REACH Compliant</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 2: Multilayer Laminates -->
+        <div class="bento-item">
+          <img src="images/laminate-solutions.jpg" alt="Multilayer Packaging" class="bento-bg-img" onerror="this.src='https://safepack.com/wp-content/uploads/2021/07/laminate-4-hi-min.jpg'">
+          <div class="bento-overlay">
+            <span class="bento-tag">High Barrier</span>
+            <h3>Multilayer & PE Coated Papers</h3>
+            <p>Moisture barrier composites for food, pharmaceuticals, and industrial sack liners.</p>
+          </div>
+        </div>
+
+        <!-- Bento 3: Compostable & Bio-Safe -->
+        <div class="bento-item">
+          <img src="images/sustainable-packaging.jpg" alt="Sustainable Packaging" class="bento-bg-img" onerror="this.src='https://safepack.com/wp-content/uploads/2023/06/Sustainable-Safepack-2.jpg'">
+          <div class="bento-overlay">
+            <span class="bento-tag eco-tag">100% Bio-Safe</span>
+            <h3>Compostable & PLA Laminates</h3>
+            <p>Biodegradable barrier papers replacing single-use plastics without performance loss.</p>
+          </div>
+        </div>
+
+        <!-- Bento 4: Aluminium Barrier Foils -->
+        <div class="bento-item">
+          <img src="images/aluminium-barrier.png" alt="Aluminium Barrier Packaging" class="bento-bg-img" onerror="this.src='https://safepack.com/wp-content/uploads/2021/12/aluminium-barrier-packaging.png'">
+          <div class="bento-overlay">
+            <span class="bento-tag">Ultra Vacuum Barrier</span>
+            <h3>Aluminium Barrier Packaging</h3>
+            <p>Zero WVTR & OTR 3-ply and 5-ply laminates for defense, electronics, and export machinery.</p>
+          </div>
+        </div>
+
+        <!-- Bento 5: Oil & Gas Mothballing -->
+        <div class="bento-item">
+          <img src="images/oil-gas-preservation.jpg" alt="Oil & Gas Preservation" class="bento-bg-img" onerror="this.src='https://safepack.com/wp-content/uploads/2022/02/banner-5.jpg'">
+          <div class="bento-overlay">
+            <span class="bento-tag">Heavy Industry</span>
+            <h3>VCI Oil & Gas Preservation</h3>
+            <p>Preservation powders, hydrotest corrosion inhibitors, and deep-sea flange covers.</p>
+          </div>
+        </div>
+
+        <!-- Bento 6: Insulation Facings -->
+        <div class="bento-item">
+          <img src="images/insulation-laminates.jpg" alt="Insulation Facing Laminates" class="bento-bg-img" onerror="this.src='https://safepack.com/wp-content/uploads/2021/12/insulation-laminates.jpg'">
+          <div class="bento-overlay">
+            <span class="bento-tag">Fire Rated</span>
+            <h3>Insulation Facing Laminates</h3>
+            <p>FSK & PSA self-adhesive facings for HVAC ducts and thermal building insulation.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Technical Data Sheet (TDS) Download Portal -->
+  <section class="tds-section" id="tds">
+    <div class="container">
+      <div class="section-title-wrap text-center">
+        <span class="sub-badge"><i class="fa-solid fa-file-lines"></i> Technical Library</span>
+        <h2>Technical Data Sheets & Compliance Documents</h2>
+        <p>Download instant technical specifications, ASTM test certificates, and RoHS declarations.</p>
+      </div>
+
+      <div class="tds-table-card">
+        <div class="tds-search-bar">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="tdsSearchInput" placeholder="Search data sheets (e.g. VCI paper, FSK, aluminium barrier, RoHS)..." />
+        </div>
+
+        <div class="tds-list" id="tdsList">
+          <div class="tds-row" data-name="vci paper steel wrap rohs reach">
+            <div class="tds-title-col">
+              <i class="fa-solid fa-file-pdf pdf-icon"></i>
+              <div>
+                <strong>Safepack VCI Paper - Technical Specification (TDS-SP-101)</strong>
+                <span>RoHS, REACH, MIL-PRF-3420 Compliant | Standard Weight: 60-120 GSM</span>
+              </div>
+            </div>
+            <button class="btn btn-sm btn-outline-primary" onclick="simulateTdsDownload('TDS-SP-101')"><i class="fa-solid fa-download"></i> Download PDF (1.2 MB)</button>
+          </div>
+
+          <div class="tds-row" data-name="aluminium barrier foil vacuum defense mil prf">
+            <div class="tds-title-col">
+              <i class="fa-solid fa-file-pdf pdf-icon"></i>
+              <div>
+                <strong>Aluminium High-Barrier Foil 5-Ply Spec Sheet (TDS-AL-204)</strong>
+                <span>WVTR &lt; 0.005 g/m²/24h | MIL-PRF-131 Class 1 Approved</span>
+              </div>
+            </div>
+            <button class="btn btn-sm btn-outline-primary" onclick="simulateTdsDownload('TDS-AL-204')"><i class="fa-solid fa-download"></i> Download PDF (1.8 MB)</button>
+          </div>
+
+          <div class="tds-row" data-name="fsk insulation facing hvac fire retardant">
+            <div class="tds-title-col">
+              <i class="fa-solid fa-file-pdf pdf-icon"></i>
+              <div>
+                <strong>FSK Facing (Foil-Scrim-Kraft) Flame Retardant Spec (TDS-FSK-302)</strong>
+                <span>BS 476 Part 6 & 7 Class 0 Fire Rating | Tri-directional Scrim</span>
+              </div>
+            </div>
+            <button class="btn btn-sm btn-outline-primary" onclick="simulateTdsDownload('TDS-FSK-302')"><i class="fa-solid fa-download"></i> Download PDF (980 KB)</button>
+          </div>
+
+          <div class="tds-row" data-name="compostable pla bio-safe food packaging">
+            <div class="tds-title-col">
+              <i class="fa-solid fa-file-pdf pdf-icon"></i>
+              <div>
+                <strong>Bio-Safe Compostable Coated Paper Specs (TDS-BIO-401)</strong>
+                <span>EN 13432 Compostable Certified | Oil & Grease Resistance Grade</span>
+              </div>
+            </div>
+            <button class="btn btn-sm btn-outline-primary" onclick="simulateTdsDownload('TDS-BIO-401')"><i class="fa-solid fa-download"></i> Download PDF (1.4 MB)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modern Interactive RFQ & Sample Configurator -->
+  <section class="rfq-section" id="rfq-configurator">
+    <div class="container">
+      <div class="rfq-layout-grid">
+        
+        <div class="rfq-left">
+          <span class="sub-badge"><i class="fa-solid fa-calculator"></i> Direct Commercial Desk</span>
+          <h2>Request a Precision Quotation or Testing Sample Kit</h2>
+          <p>Get direct factory pricing, tailored barrier multilayer drawings, and sample rolls delivered to your R&D plant or warehouse.</p>
+          
+          <div class="rfq-perks">
+            <div class="perk-item">
+              <i class="fa-solid fa-truck-fast"></i>
+              <div>
+                <strong>Sample Dispatch in 48 Hours</strong>
+                <p>Testing kits tailored to your specific metal alloy.</p>
+              </div>
+            </div>
+            <div class="perk-item">
+              <i class="fa-solid fa-certificate"></i>
+              <div>
+                <strong>Certified Lab Testing Reports</strong>
+                <p>NABL accredited salt spray & humidity chamber data included.</p>
+              </div>
+            </div>
+            <div class="perk-item">
+              <i class="fa-solid fa-user-tie"></i>
+              <div>
+                <strong>Dedicated Packaging Specialist</strong>
+                <p>Consult with Safepack application engineers directly.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rfq-right">
+          <div class="modern-form-card">
+            <h3>Configure Your Request</h3>
+            
+            <form id="modernRfqForm">
+              <div class="form-grid-2">
+                <div class="input-group">
+                  <label>Full Name *</label>
+                  <input type="text" id="mName" placeholder="e.g. Vikram Verma" required />
+                </div>
+                <div class="input-group">
+                  <label>Corporate Email *</label>
+                  <input type="email" id="mEmail" placeholder="v.verma@company.com" required />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="input-group">
+                  <label>Company / Organization *</label>
+                  <input type="text" id="mCompany" placeholder="e.g. ArcelorMittal / SKF" required />
+                </div>
+                <div class="input-group">
+                  <label>Country / Location *</label>
+                  <input type="text" id="mCountry" placeholder="e.g. India / Germany / USA" required />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="input-group">
+                  <label>Product Category</label>
+                  <select id="mCategory">
+                    <option value="VCI Wrapping">VCI Steel & Metal Wrap</option>
+                    <option value="Barrier Foils">Aluminium Vacuum Barrier Foils</option>
+                    <option value="Multilayer PE">PE Coated & Medical Laminates</option>
+                    <option value="Bio-Safe">Compostable & PLA Packaging</option>
+                    <option value="Insulation">FSK / PSA Insulation Facings</option>
+                    <option value="Oil & Gas">Oil & Gas Mothballing Systems</option>
+                  </select>
+                </div>
+                <div class="input-group">
+                  <label>Estimated Annual Volume</label>
+                  <select id="mVolume">
+                    <option value="Sample">Sample / Testing Batch (&lt; 500 kg)</option>
+                    <option value="Small">1 to 10 Metric Tonnes</option>
+                    <option value="Medium">10 to 50 Metric Tonnes</option>
+                    <option value="Large">50+ Metric Tonnes (Enterprise)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label>Technical Specifications / Transit Scenario</label>
+                <textarea id="mNotes" rows="3" placeholder="Tell us about coil width, transit route, packaging machine compatibility, or target specs..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary-glow btn-block btn-lg">
+                <i class="fa-solid fa-paper-plane"></i> Submit Smart RFQ
+              </button>
+
+              <div class="form-alert" id="rfqAlert" style="display: none;">
+                <i class="fa-solid fa-circle-check"></i> RFQ Received! Our application engineering department will send pricing and sample tracking details within 24 hours.
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modern Footer -->
+  <footer class="modern-footer">
+    <div class="container footer-content-grid">
+      <div class="footer-col-main">
+        <img src="images/logo.png" alt="Safepack Logo" class="footer-brand-logo" onerror="this.src='https://safepack.com/wp-content/uploads/2021/07/logo-1-1.png'">
+        <p>Safepack is an international manufacturing leader in non-toxic VCI corrosion prevention and high-barrier technical packaging laminates. Synthesized and manufactured in India, protecting the globe.</p>
+        <div class="social-links-row">
+          <a href="https://www.linkedin.com/company/safepack-industries-ltd." target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/channel/UCq0-215DUKiORW0UgkdzcnQ" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.facebook.com/safepackindustries/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="#wizard">Packaging Wizard</a></li>
+          <li><a href="#solutions">VCI Steel Wrap</a></li>
+          <li><a href="#solutions">Aluminium Barrier Foil</a></li>
+          <li><a href="#sustainability">Bio-Safe & PLA Coatings</a></li>
+          <li><a href="#solutions">Insulation Facings</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Technical</h4>
+        <ul>
+          <li><a href="#tds">TDS Download Center</a></li>
+          <li><a href="#layer-tech">5-Ply Cross Section</a></li>
+          <li><a href="#sustainability">CO₂ Impact Calculator</a></li>
+          <li><a href="index.html"><strong>Switch to Classic Clone</strong></a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Desk</h4>
+        <p><i class="fa-solid fa-envelope"></i> solutions@safepack.com</p>
+        <p><i class="fa-solid fa-phone"></i> +91 9766394445 (Domestic)</p>
+        <p><i class="fa-solid fa-globe"></i> +91 9822067467 (Intl)</p>
+        <p><i class="fa-solid fa-location-dot"></i> Pune, MH, India</p>
+      </div>
+    </div>
+
+    <div class="footer-credit-bar">
+      <div class="container credit-inner">
+        <span>&copy; 2026 Safepack Industries Ltd. | Next-Gen Industrial UI/UX Prototype</span>
+        <span>Engineered with modern responsive standards</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="modern-app.js"></script>
+</body>
+</html>

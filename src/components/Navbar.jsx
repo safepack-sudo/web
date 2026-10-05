@@ -157,8 +157,8 @@ export default function Navbar({ activeSection }) {
               Home
             </a>
 
-            {/* 2. Products & Solutions, Bio-Safe, Industries (Mega Menus) */}
-            {headerNavSequence.slice(0, 3).map((menu) => (
+            {/* 2. All 6 Comprehensive Mega Dropdowns */}
+            {headerNavSequence.map((menu) => (
               <div 
                 key={menu.id} 
                 className="nav-dropdown-wrapper"
@@ -170,7 +170,16 @@ export default function Navbar({ activeSection }) {
                   aria-expanded={openMega === menu.id}
                 >
                   <i className={`fa-solid ${menu.icon} nav-icon-sm`}></i>
-                  <span>{menu.title}</span>
+                  <span>
+                    {menu.id === 'composites' ? (
+                      <>
+                        <span className="nav-title-full">Paper / Film / Foil Composites</span>
+                        <span className="nav-title-short">Composites</span>
+                      </>
+                    ) : (
+                      menu.title
+                    )}
+                  </span>
                   {menu.badge && (
                     <span className={`nav-chip-badge ${menu.isEcoHighlight ? 'chip-eco' : ''}`}>
                       {menu.badge}
@@ -179,17 +188,20 @@ export default function Navbar({ activeSection }) {
                   <i className="fa-solid fa-chevron-down caret-icon"></i>
                 </button>
 
-                {/* Desktop Mega Dropdown Overlay */}
+                {/* Desktop Mega Dropdown Overlay with Multi-Column Layout */}
                 {openMega === menu.id && (
-                  <div className="mega-menu-panel" onMouseLeave={() => setOpenMega(null)}>
+                  <div 
+                    className={`mega-menu-panel mega-menu-${menu.id}`} 
+                    onMouseLeave={() => setOpenMega(null)}
+                  >
                     <div className="mega-grid-layout">
                       
-                      {/* Left: Product Columns with Fast Thumbnails and New Tab Subpage Links */}
+                      {/* Left: Product Columns in balanced multi-column grid */}
                       <div className="mega-sections-container">
                         <div className="mega-panel-intro">
                           <div>
                             <span className="eyebrow" style={{ fontSize: '0.72rem', margin: 0, color: '#0b663d' }}>
-                              <i className={`fa-solid ${menu.icon}`}></i> {menu.title} Technical Portfolio
+                              <i className={`fa-solid ${menu.icon}`}></i> {menu.title} Portfolio
                             </span>
                             <h4 className="mega-panel-title">{menu.title}</h4>
                           </div>
@@ -304,114 +316,6 @@ export default function Navbar({ activeSection }) {
               Global Presence
             </a>
 
-            {/* Oil & Gas */}
-            <a 
-              href={getSubpageUrl('Oil & Gas')}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-direct-link"
-              onMouseEnter={() => setOpenMega(null)}
-            >
-              Oil & Gas <i className="fa-solid fa-arrow-up-right-from-square" style={{ fontSize: '0.62rem', marginLeft: '3px', opacity: 0.7 }}></i>
-            </a>
-
-            {/* 5. About Us (Mega Menu) */}
-            {headerNavSequence.slice(3, 4).map((menu) => (
-              <div 
-                key={menu.id} 
-                className="nav-dropdown-wrapper"
-                onMouseEnter={() => setOpenMega(menu.id)}
-              >
-                <button 
-                  className={`nav-dropdown-btn ${openMega === menu.id ? 'open' : ''}`}
-                  onClick={() => setOpenMega(openMega === menu.id ? null : menu.id)}
-                  aria-expanded={openMega === menu.id}
-                >
-                  <i className={`fa-solid ${menu.icon} nav-icon-sm`}></i>
-                  <span>{menu.title}</span>
-                  <i className="fa-solid fa-chevron-down caret-icon"></i>
-                </button>
-
-                {openMega === menu.id && (
-                  <div className="mega-menu-panel mega-menu-about" onMouseLeave={() => setOpenMega(null)}>
-                    <div className="mega-grid-layout" style={{ gridTemplateColumns: '1fr 280px' }}>
-                      <div className="mega-sections-container">
-                        <div className="mega-panel-intro">
-                          <div>
-                            <span className="eyebrow" style={{ fontSize: '0.72rem', margin: 0, color: '#0b663d' }}>
-                              <i className={`fa-solid ${menu.icon}`}></i> Enterprise Overview
-                            </span>
-                            <h4 className="mega-panel-title">About Safepack Industries Ltd.</h4>
-                          </div>
-                          <p className="mega-panel-desc">{menu.description}</p>
-                        </div>
-                        <div className="mega-columns-row cols-2">
-                          {menu.sections.map((sec, sIdx) => (
-                            <div className="mega-column-box" key={sIdx}>
-                              <h5 className="column-title">
-                                <i className={`fa-solid ${sec.icon}`}></i> {sec.heading}
-                              </h5>
-                              <ul className="column-items-list">
-                                {sec.items.map((sub, itemIdx) => (
-                                  <li key={itemIdx}>
-                                    <a 
-                                      href={getSubpageUrl(sub.name)}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="mega-product-btn"
-                                      onClick={() => setOpenMega(null)}
-                                      title={`${sub.name} (Opens in new tab)`}
-                                    >
-                                      <div className="product-thumb-box">
-                                        <img 
-                                          src={sub.image || 'https://safepack.com/wp-content/uploads/2022/05/Safepack-Solutions.jpg'} 
-                                          alt={sub.name}
-                                          className="product-thumb-img"
-                                          loading="lazy"
-                                          onError={(e) => {
-                                            e.target.style.display = 'none';
-                                          }}
-                                        />
-                                      </div>
-                                      <div className="product-btn-text">
-                                        <strong className="p-name">{sub.name}</strong>
-                                        <span className="p-desc">{sub.desc}</span>
-                                      </div>
-                                      <div className="p-meta-right">
-                                        <i className="fa-solid fa-arrow-up-right-from-square tab-open-icon" title="Opens in new tab"></i>
-                                      </div>
-                                    </a>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {menu.featured && (
-                        <div className="mega-featured-card">
-                          <div className="featured-card-inner">
-                            <span className="featured-badge">{menu.featured.tag}</span>
-                            <h5>{menu.featured.title}</h5>
-                            <p>{menu.featured.desc}</p>
-                            <button 
-                              className="btn btn-outline btn-sm btn-block" 
-                              onClick={(e) => scrollToSection('clients', e)}
-                            >
-                              Our Global Clients &rarr;
-                            </button>
-                            <div className="featured-card-trust">
-                              <span><i className="fa-solid fa-certificate"></i> ISO 9001 / 14001</span>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
           </nav>
 
           {/* Right Header Actions */}

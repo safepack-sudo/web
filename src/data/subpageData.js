@@ -2930,148 +2930,155 @@ export const subpageDetailRegistry = {
     "category": "About Safepack Industries",
     "image": "https://safepack.com/wp-content/uploads/2022/05/Safepack-Solutions.jpg",
     "gallery": [
-      "https://safepack.com/wp-content/uploads/2022/06/Presidents-Award-min.jpg",
-      "https://safepack.com/wp-content/uploads/2022/08/awars-sir.png"
+      "https://safepack.com/wp-content/uploads/2021/12/company-39-s1.png",
+      "https://safepack.com/wp-content/uploads/2021/12/company-39-s2.png",
+      "https://safepack.com/wp-content/uploads/2021/11/team-safepack-24-s1.png"
     ],
-    "badge": "100+ Years Combined Heritage",
-    "headline": "Company Overview — High-Performance Industrial Packaging Solution",
-    "summary": "Safepack Company Overview is engineered with molecular chemical precision and heavy-duty extrusion capabilities up to 4000mm width at Safepack's integrated manufacturing campus in Pune, India. Tested and certified to international standards, providing unmatched barrier performance and corrosion defense.",
+    "badge": "100+ Years Combined Legacy",
+    "headline": "Safepack Industries — Global Market Leader in Industrial Packaging & Corrosion Prevention",
+    "summary": "Safepack is an innovation-led group with over 100 years of combined legacy. It is a pioneer in manufacturing customized advanced packaging solutions for Anti-Corrosion (VCI), Industrial & Speciality applications. Operating an ultramodern integrated campus in Pune, India, Safepack manufactures everything from molecule chemical synthesis to finished barrier laminates all under one roof.",
     "highlights": [
-      "A century of pioneering active industrial packaging chemistry and barriers",
-      "Vertically integrated research facility with in-house molecule synthesis",
-      "Serving over 10,000 corporate clients globally across automotive & metallurgy",
-      "Zero-liquid-discharge green campus operating on ethical environmental governance"
+      "Over 100 years of combined industrial heritage, serving 10,000+ customers worldwide",
+      "Comprehensive portfolio of over 500 specialized barrier and rust-prevention formulations",
+      "One of the world's widest extrusion coating and lamination lines with continuous width up to 4000mm",
+      "Global presence across 45+ countries spanning North America, Europe, Asia Pacific, and the Middle East"
     ],
     "specs": [
       {
-        "k": "Headquarters",
-        "v": "Pune, Maharashtra, India"
+        "k": "Global Presence",
+        "v": "Exporting to 45+ Countries Worldwide"
       },
       {
-        "k": "Global Footprint",
-        "v": "Exporting to 40+ countries across 6 continents"
+        "k": "Product Portfolio",
+        "v": "500+ Formulations All Under One Roof"
       },
       {
-        "k": "Manufacturing Scale",
-        "v": "State-of-the-art integrated synthesis campus"
+        "k": "Extrusion Width",
+        "v": "Continuous Web up to 4000 mm"
       },
       {
-        "k": "Accreditations",
-        "v": "ISO 9001:2015, ISO 14001:2015, ISO 45001"
+        "k": "Manufacturing Campus",
+        "v": "Integrated Molecule Synthesis, Pune, India"
       }
     ],
-    "liveUrl": "https://safepack.com/?s=Company%20Overview"
+    "liveUrl": "https://safepack.com/about-us/"
   },
   "Leadership": {
     "name": "Leadership",
     "category": "About Safepack Industries",
-    "image": "https://safepack.com/wp-content/uploads/2022/06/Presidents-Award-min.jpg",
+    "image": "https://safepack.com/wp-content/uploads/2021/11/rajendra-tapadia-20-ad.jpg",
     "gallery": [
-      "https://safepack.com/wp-content/uploads/2022/06/Presidents-Award-min.jpg",
+      "https://safepack.com/wp-content/uploads/2021/11/rajesh-malpani-50-ad.jpg",
+      "https://safepack.com/wp-content/uploads/2021/11/team-safepack-24-s1.png",
       "https://safepack.com/wp-content/uploads/2022/08/awars-sir.png"
     ],
-    "badge": "100+ Years Combined Heritage",
-    "headline": "Leadership — High-Performance Industrial Packaging Solution",
-    "summary": "Safepack Leadership is engineered with molecular chemical precision and heavy-duty extrusion capabilities up to 4000mm width at Safepack's integrated manufacturing campus in Pune, India. Tested and certified to international standards, providing unmatched barrier performance and corrosion defense.",
+    "badge": "Executive Board & Technocrats",
+    "headline": "Visionary Leadership — Steering Global Anti-Corrosion Packaging Excellence",
+    "summary": "Safepack's leadership combines visionary industrial foresight, chemical engineering excellence, and corporate governance. Under the stewardship of Mr. Rajendra Tapadia (Managing Director & CEO) and Mr. Rajesh Malpani (Director), Safepack has transformed into a globally revered pioneer protecting critical metallurgical, automotive, and heavy engineering assets across 45+ nations.",
     "highlights": [
-      "A century of pioneering active industrial packaging chemistry and barriers",
-      "Vertically integrated research facility with in-house molecule synthesis",
-      "Serving over 10,000 corporate clients globally across automotive & metallurgy",
-      "Zero-liquid-discharge green campus operating on ethical environmental governance"
+      "Mr. Rajendra Tapadia (MD & CEO): Pioneering technocrat leading molecule synthesis innovation, global R&D, and strategic international market expansion",
+      "Mr. Rajesh Malpani (Director): Seasoned industrial leader driving operational excellence, capital governance, and sustainable manufacturing",
+      "Supported by 500+ chemical engineers, polymer specialists, testing analysts, and global supply chain professionals",
+      "Steadfast commitment to 'Environment First' R&D, zero-defect manufacturing, and customer-first technical partnership"
     ],
     "specs": [
       {
-        "k": "Headquarters",
-        "v": "Pune, Maharashtra, India"
+        "k": "Managing Director & CEO",
+        "v": "Mr. Rajendra Tapadia"
       },
       {
-        "k": "Global Footprint",
-        "v": "Exporting to 40+ countries across 6 continents"
+        "k": "Director",
+        "v": "Mr. Rajesh Malpani"
       },
       {
-        "k": "Manufacturing Scale",
-        "v": "State-of-the-art integrated synthesis campus"
+        "k": "Technical Workforce",
+        "v": "500+ Engineers, Scientists & Specialists"
       },
       {
-        "k": "Accreditations",
-        "v": "ISO 9001:2015, ISO 14001:2015, ISO 45001"
+        "k": "Corporate Governance",
+        "v": "Customer-First, Zero-Defect, Eco-First Ethos"
       }
     ],
-    "liveUrl": "https://safepack.com/?s=Leadership"
+    "liveUrl": "https://safepack.com/leadership/"
   },
   "Certifications": {
     "name": "Certifications",
     "category": "About Safepack Industries",
-    "image": "https://safepack.com/wp-content/uploads/2022/08/awars-sir.png",
+    "image": "https://safepack.com/wp-content/uploads/2021/12/bfsv.jpg",
     "gallery": [
-      "https://safepack.com/wp-content/uploads/2022/06/Presidents-Award-min.jpg",
-      "https://safepack.com/wp-content/uploads/2022/08/awars-sir.png"
+      "https://safepack.com/wp-content/uploads/2021/12/iso.jpg",
+      "https://safepack.com/wp-content/uploads/2021/12/reach1.jpg"
     ],
-    "badge": "100+ Years Combined Heritage",
-    "headline": "Certifications — High-Performance Industrial Packaging Solution",
-    "summary": "Safepack Certifications is engineered with molecular chemical precision and heavy-duty extrusion capabilities up to 4000mm width at Safepack's integrated manufacturing campus in Pune, India. Tested and certified to international standards, providing unmatched barrier performance and corrosion defense.",
+    "badge": "BFSV, REACH, RoHS & ISO Accredited",
+    "headline": "World-Class Certifications & Stringent International Accreditations",
+    "summary": "Safepack products are rigorously tested, validated, and certified by premier international laboratories. From prestigious German BFSV certification for volatile corrosion inhibitor performance to REACH SVHC and RoHS compliance, Safepack maintains complete compliance with global defense, automotive, and industrial environmental standards.",
     "highlights": [
-      "A century of pioneering active industrial packaging chemistry and barriers",
-      "Vertically integrated research facility with in-house molecule synthesis",
-      "Serving over 10,000 corporate clients globally across automotive & metallurgy",
-      "Zero-liquid-discharge green campus operating on ethical environmental governance"
+      "German BFSV (Beratungs- und Forschungsstelle für Versandverpackung) certified for VCI corrosion inhibition",
+      "REACH SVHC Compliant: European Chemicals Agency (ECHA) verified free from Substances of Very High Concern",
+      "RoHS Certified: Strict non-toxic compliance free from lead, mercury, cadmium, and hazardous heavy metals",
+      "Integrated Management: ISO 9001:2015 (Quality), ISO 14001:2015 (Environment), and ISO 45001:2018 (Occupational Health & Safety)"
     ],
     "specs": [
       {
-        "k": "Headquarters",
-        "v": "Pune, Maharashtra, India"
+        "k": "German BFSV",
+        "v": "Tested & Certified VCI Vapor Phase Activity"
       },
       {
-        "k": "Global Footprint",
-        "v": "Exporting to 40+ countries across 6 continents"
+        "k": "European REACH",
+        "v": "100% SVHC Chemical Compliance"
       },
       {
-        "k": "Manufacturing Scale",
-        "v": "State-of-the-art integrated synthesis campus"
+        "k": "RoHS Directive",
+        "v": "Heavy Metal Free Non-Toxic Formulations"
       },
       {
-        "k": "Accreditations",
-        "v": "ISO 9001:2015, ISO 14001:2015, ISO 45001"
+        "k": "ISO Standards",
+        "v": "ISO 9001:2015, ISO 14001:2015, ISO 45001:2018"
       }
     ],
-    "liveUrl": "https://safepack.com/?s=Certifications"
+    "liveUrl": "https://safepack.com/certifications/"
   },
   "Recognitions": {
     "name": "Recognitions",
     "category": "About Safepack Industries",
     "image": "https://safepack.com/wp-content/uploads/2022/06/Presidents-Award-min.jpg",
     "gallery": [
-      "https://safepack.com/wp-content/uploads/2022/06/Presidents-Award-min.jpg",
+      "https://safepack.com/wp-content/uploads/2021/11/awards-53-s1.png",
+      "https://safepack.com/wp-content/uploads/2021/11/awards-53-s2.png",
+      "https://safepack.com/wp-content/uploads/2021/11/awards-53-s3.png",
+      "https://safepack.com/wp-content/uploads/2021/11/awards-53-s4.png",
+      "https://safepack.com/wp-content/uploads/2021/11/awards-53-s5-2.png",
+      "https://safepack.com/wp-content/uploads/2021/11/awards-54-s6.png",
       "https://safepack.com/wp-content/uploads/2022/08/awars-sir.png"
     ],
-    "badge": "100+ Years Combined Heritage",
-    "headline": "Recognitions — High-Performance Industrial Packaging Solution",
-    "summary": "Safepack Recognitions is engineered with molecular chemical precision and heavy-duty extrusion capabilities up to 4000mm width at Safepack's integrated manufacturing campus in Pune, India. Tested and certified to international standards, providing unmatched barrier performance and corrosion defense.",
+    "badge": "National & International Laurels",
+    "headline": "Prestigious Recognitions — President's Award, INDIASTAR & WorldStar Laurels",
+    "summary": "Safepack's unrelenting commitment to research, sustainable packaging innovation, and export dominance has been recognized at the highest state and international packaging forums. Safepack is a recipient of the prestigious President's Award, multiple INDIASTAR National Awards, and WorldStar Packaging Accolades.",
     "highlights": [
-      "A century of pioneering active industrial packaging chemistry and barriers",
-      "Vertically integrated research facility with in-house molecule synthesis",
-      "Serving over 10,000 corporate clients globally across automotive & metallurgy",
-      "Zero-liquid-discharge green campus operating on ethical environmental governance"
+      "President's Award for Industrial Packaging Innovation and National Export Excellence",
+      "Consecutive INDIASTAR Awards by the Indian Institute of Packaging (IIP) for breakthrough packaging design",
+      "WorldStar Packaging Awards conferred by the World Packaging Organisation (WPO)",
+      "Pioneering patents and citations for sustainable, bio-based, and non-toxic corrosion protection solutions"
     ],
     "specs": [
       {
-        "k": "Headquarters",
-        "v": "Pune, Maharashtra, India"
+        "k": "President's Award",
+        "v": "Conferred for Outstanding Export & Innovation"
       },
       {
-        "k": "Global Footprint",
-        "v": "Exporting to 40+ countries across 6 continents"
+        "k": "INDIASTAR Awards",
+        "v": "Multiple National Packaging Accolades"
       },
       {
-        "k": "Manufacturing Scale",
-        "v": "State-of-the-art integrated synthesis campus"
+        "k": "WorldStar Accolades",
+        "v": "World Packaging Organisation (WPO) Certified"
       },
       {
-        "k": "Accreditations",
-        "v": "ISO 9001:2015, ISO 14001:2015, ISO 45001"
+        "k": "Innovation Citations",
+        "v": "Patented Formulations & High-Barrier Laminates"
       }
     ],
-    "liveUrl": "https://safepack.com/?s=Recognitions"
+    "liveUrl": "https://safepack.com/recognitions/"
   },
   "Metal Mills": {
     "name": "Metal Mills",

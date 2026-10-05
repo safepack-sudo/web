@@ -28,7 +28,7 @@ const heroSlides = [
     titleLine3: 'Solutions.',
     desc: 'Ultramodern manufacturing plant, from molecule synthesis to end products – ALL UNDER ONE ROOF!',
     image: '/images/banner-2.png',
-    fallbackImg: 'https://safepack.com/wp-content/uploads/2021/10/banner-2-41-si.png',
+    fallbackImg: 'https://safepack.com/wp-content/uploads/2021/07/vci-49-hi-min.jpg',
     primaryBtn: { text: 'Explore VCI Solutions', href: '#solutions' },
     secondaryBtn: { text: 'Request Details', href: '#contact' },
     cardTop: { icon: 'fa-industry', title: 'Complete VCI Range', subtitle: 'Multi-metal Protection' },
@@ -45,7 +45,7 @@ const heroSlides = [
     titleLine3: 'Solutions.',
     desc: 'Wide range of innovative and quality packaging solutions to protect and preserve what matters to you the most.',
     image: '/images/banner-3.png',
-    fallbackImg: 'https://safepack.com/wp-content/uploads/2021/10/banner-3-41-si.png',
+    fallbackImg: 'https://safepack.com/wp-content/uploads/2021/07/laminate-4-hi-min.jpg',
     primaryBtn: { text: 'View Flexible Range', href: '#solutions' },
     secondaryBtn: { text: 'Calculate ESG Offset', href: '#sustainability' },
     cardTop: { icon: 'fa-seedling', title: 'Sustainable Solutions', subtitle: 'Green VCI Chemistry' },
@@ -62,7 +62,7 @@ const heroSlides = [
     titleLine3: 'Solutions.',
     desc: 'We commit to prevent rust and provide quality packaging solutions, globally. Exporting to 40+ Countries.',
     image: '/images/banner-4.png',
-    fallbackImg: 'https://safepack.com/wp-content/uploads/2021/10/banner-4-41-si.png',
+    fallbackImg: 'https://safepack.com/wp-content/uploads/2022/02/banner-5.jpg',
     primaryBtn: { text: 'Explore Global Network', href: '#global' },
     secondaryBtn: { text: 'Contact Us', href: '#contact' },
     cardTop: { icon: 'fa-ship', title: 'Exporting to 40+ Countries', subtitle: 'Worldwide Reach' },
@@ -89,14 +89,14 @@ export default function Hero() {
     setCurrentSlide(index);
   };
 
-  // Robust timer for slide rotation
+  // Robust timer for slide rotation - resets cleanly on currentSlide change
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       nextSlide();
     }, 5500);
     return () => clearInterval(interval);
-  }, [isPaused, nextSlide]);
+  }, [isPaused, nextSlide, currentSlide]);
 
   // Touch Swipe Handlers for mobile
   const handleTouchStart = (e) => {
@@ -125,8 +125,6 @@ export default function Hero() {
     <section 
       className="hero" 
       id="home"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -217,7 +215,11 @@ export default function Hero() {
         </div>
 
         {/* Bottom Interactive Navigation Bar with Tabs & Arrows */}
-        <div className="hero-bottom-navigator">
+        <div 
+          className="hero-bottom-navigator"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           
           {/* Previous / Next Arrows */}
           <div className="hero-nav-arrows">
@@ -248,7 +250,7 @@ export default function Hero() {
               >
                 <span className="tab-pill-text">{slide.tabLabel}</span>
                 {idx === currentSlide && (
-                  <span className={`tab-pill-progress ${isPaused ? 'paused' : ''}`}></span>
+                  <span key={currentSlide} className={`tab-pill-progress ${isPaused ? 'paused' : ''}`}></span>
                 )}
               </button>
             ))}

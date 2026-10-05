@@ -686,7 +686,7 @@ export const headerNavSequence = [
             name: "Leadership",
             desc: "Visionary packaging technocrats & polymer scientists",
             spec: "Executive Team",
-            image: "https://safepack.com/wp-content/uploads/2022/06/Presidents-Award-min.jpg"
+            image: "https://safepack.com/wp-content/uploads/2021/11/rajendra-tapadia-20-ad.jpg"
           }
         ]
       },
@@ -698,13 +698,13 @@ export const headerNavSequence = [
             name: "Certifications",
             desc: "ISO 9001, ISO 14001, ISO 45001, RoHS & REACH compliance",
             spec: "Global Standards",
-            image: "https://safepack.com/wp-content/uploads/2022/08/awars-sir.png"
+            image: "https://safepack.com/wp-content/uploads/2021/12/bfsv.jpg"
           },
           {
             name: "Recognitions",
             desc: "President's Award and international packaging innovation accolades",
             spec: "Accredited",
-            image: "https://safepack.com/wp-content/uploads/2022/06/Presidents-Award-min.jpg"
+            image: "https://safepack.com/wp-content/uploads/2021/11/awards-53-s1.png"
           }
         ]
       }

@@ -144,13 +144,13 @@ export default function Navbar({ activeSection }) {
             </div>
           </a>
 
-          {/* Desktop Properly Sequenced Navigation */}
+          {/* Desktop Properly Sequenced Navigation matching Approved Mockup */}
           <nav className="nav-links" aria-label="Main Navigation">
             
             {/* 1. Home */}
             <a 
               href="/" 
-              className={`nav-direct-link ${activeSection === 'home' ? 'active' : ''}`}
+              className={`nav-direct-link ${activeSection === 'home' && !openMega ? 'active' : ''}`}
               onMouseEnter={() => setOpenMega(null)}
               onClick={(e) => scrollToSection('home', e)}
             >
@@ -180,15 +180,17 @@ export default function Navbar({ activeSection }) {
                       menu.title
                     )}
                   </span>
-                  {menu.badge && (
+                  {menu.id === 'sustainability' ? (
+                    <span className="nav-eco-leaf" title="100% Eco-Sustainable">🌱</span>
+                  ) : menu.badge ? (
                     <span className={`nav-chip-badge ${menu.isEcoHighlight ? 'chip-eco' : ''}`}>
                       {menu.badge}
                     </span>
-                  )}
+                  ) : null}
                   <i className="fa-solid fa-chevron-down caret-icon"></i>
                 </button>
 
-                {/* Desktop Mega Dropdown Overlay with Multi-Column Layout */}
+                {/* Desktop Mega Dropdown Overlay matching 1:1 with Approved Visual Concept */}
                 {openMega === menu.id && (
                   <div 
                     className={`mega-menu-panel mega-menu-${menu.id}`} 
@@ -196,55 +198,43 @@ export default function Navbar({ activeSection }) {
                   >
                     <div className="mega-grid-layout">
                       
-                      {/* Left: Product Columns in balanced multi-column grid */}
+                      {/* Left: Product Columns in clean 3-column category grid */}
                       <div className="mega-sections-container">
+                        
+                        {/* Header Intro Bar */}
                         <div className="mega-panel-intro">
-                          <div>
-                            <span className="eyebrow" style={{ fontSize: '0.72rem', margin: 0, color: '#0b663d' }}>
-                              <i className={`fa-solid ${menu.icon}`}></i> {menu.title} Portfolio
-                            </span>
-                            <h4 className="mega-panel-title">{menu.title}</h4>
-                          </div>
-                          <p className="mega-panel-desc">{menu.description}</p>
+                          <h3 className="mega-portfolio-title">
+                            {menu.title.toUpperCase()} TECHNICAL PORTFOLIO
+                          </h3>
+                          <p className="mega-portfolio-desc">
+                            {menu.description}
+                          </p>
                         </div>
 
+                        {/* 3-Column Category Grid with Icons & Bullet Links */}
                         <div className={`mega-columns-row cols-${menu.sections.length}`}>
                           {menu.sections.map((sec, sIdx) => (
-                            <div className="mega-column-box" key={sIdx}>
-                              <h5 className="column-title">
-                                <i className={`fa-solid ${sec.icon}`}></i> {sec.heading}
-                              </h5>
-                              <ul className="column-items-list">
+                            <div className="mega-category-card" key={sIdx}>
+                              <div className="category-header">
+                                <div className="category-icon-box">
+                                  <i className={`fa-solid ${sec.icon}`}></i>
+                                </div>
+                                <h5 className="category-name">{sec.heading.toUpperCase()}</h5>
+                              </div>
+                              <ul className="category-items-list">
                                 {sec.items.map((sub, itemIdx) => (
                                   <li key={itemIdx}>
                                     <a 
                                       href={getSubpageUrl(sub.name)}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="mega-product-btn"
+                                      className="category-item-link"
                                       onClick={() => setOpenMega(null)}
                                       title={`${sub.name} (Opens in new tab)`}
                                     >
-                                      {/* Fast Loading Authentic Thumbnail */}
-                                      <div className="product-thumb-box">
-                                        <img 
-                                          src={sub.image || 'https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png'} 
-                                          alt={sub.name}
-                                          className="product-thumb-img"
-                                          loading="lazy"
-                                          onError={(e) => {
-                                            e.target.style.display = 'none';
-                                          }}
-                                        />
-                                      </div>
-                                      <div className="product-btn-text">
-                                        <strong className="p-name">{sub.name}</strong>
-                                        <span className="p-desc">{sub.desc}</span>
-                                      </div>
-                                      <div className="p-meta-right">
-                                        {sub.spec && <span className="p-spec-tag">{sub.spec}</span>}
-                                        <i className="fa-solid fa-arrow-up-right-from-square tab-open-icon" title="Opens in new tab"></i>
-                                      </div>
+                                      <span className="item-bullet">&bull;</span>
+                                      <span className="item-name">{sub.name}</span>
+                                      <i className="fa-solid fa-arrow-up-right-from-square item-open-icon"></i>
                                     </a>
                                   </li>
                                 ))}
@@ -254,42 +244,56 @@ export default function Navbar({ activeSection }) {
                         </div>
                       </div>
 
-                      {/* Right: Featured Showcase Card */}
-                      {menu.featured && (
-                        <div className="mega-featured-card">
-                          <div className="featured-card-inner">
-                            <span className="featured-badge">{menu.featured.tag}</span>
-                            <h5>{menu.featured.title}</h5>
-                            <p>{menu.featured.desc}</p>
-                            <button 
-                              className="btn btn-primary btn-sm btn-block"
-                              onClick={(e) => scrollToSection('solutions', e)}
-                            >
-                              {menu.featured.actionText} &rarr;
-                            </button>
-                            <div className="featured-card-trust">
-                              <span><i className="fa-solid fa-certificate"></i> RoHS &amp; REACH</span>
-                              <span><i className="fa-solid fa-shield"></i> ISO 9001</span>
-                            </div>
-                          </div>
+                      {/* Right: Featured Showcase Card matching Mockup */}
+                      <div className="mega-showcase-card">
+                        <span className="showcase-badge">
+                          {menu.featured?.tag || 'FLAGSHIP ANTI-CORROSION'}
+                        </span>
+                        <h4 className="showcase-title">
+                          {menu.featured?.title || 'All Under One Roof'}
+                        </h4>
+                        
+                        <div className="showcase-image-container">
+                          <img 
+                            src={menu.id === 'composites' ? '/images/aluminium-barrier.png' : '/images/vci-steel-wrap.jpg'} 
+                            alt={menu.featured?.title || 'Safepack Solutions'} 
+                            className="showcase-img"
+                          />
                         </div>
-                      )}
 
-                    </div>
+                        <p className="showcase-caption">
+                          All Under One Roof - Trusted Worldwide
+                        </p>
 
-                    <div className="mega-bottom-strip">
-                      <div className="strip-left">
-                        <i className="fa-solid fa-award"></i>
-                        <span>Over 500+ specialized barrier products manufactured in Pune, India &middot; Exporting worldwide</span>
+                        <div className="showcase-cert-row">
+                          <span className="cert-badge">
+                            <i className="fa-solid fa-certificate"></i> ISO 9001
+                          </span>
+                          <span className="cert-badge">
+                            <i className="fa-solid fa-shield-halved"></i> RoHS
+                          </span>
+                          <span className="cert-badge">
+                            <i className="fa-solid fa-circle-check"></i> REACH
+                          </span>
+                        </div>
+
+                        <button 
+                          className="showcase-cta-btn"
+                          onClick={(e) => scrollToSection('solutions', e)}
+                        >
+                          Explore Applications &rarr;
+                        </button>
                       </div>
-                      <a 
-                        href="/" 
-                        className="strip-action-link" 
-                        onClick={(e) => scrollToSection('contact', e)}
-                      >
-                        Request Full Technical Specification Dossier &rarr;
-                      </a>
+
                     </div>
+
+                    {/* Bottom Export Strip matching Mockup */}
+                    <div className="mega-bottom-strip">
+                      <span className="strip-text">
+                        Over 500+ specialized barrier products manufactured in Pune, India &middot; Exporting worldwide
+                      </span>
+                    </div>
+
                   </div>
                 )}
               </div>
@@ -445,11 +449,13 @@ export default function Navbar({ activeSection }) {
                   <div className="mobile-accordion-title">
                     <i className={`fa-solid ${menu.icon}`}></i>
                     <span>{menu.title}</span>
-                    {menu.badge && (
+                    {menu.id === 'sustainability' ? (
+                      <span className="nav-eco-leaf">🌱</span>
+                    ) : menu.badge ? (
                       <span className={`nav-chip-badge ${menu.isEcoHighlight ? 'chip-eco' : ''}`}>
                         {menu.badge}
                       </span>
-                    )}
+                    ) : null}
                   </div>
                   <i className={`fa-solid fa-chevron-${mobileExpanded === menu.id ? 'up' : 'down'} accordion-arrow`}></i>
                 </button>
@@ -471,14 +477,7 @@ export default function Navbar({ activeSection }) {
                               className="mobile-sub-item-btn"
                               onClick={closeMobile}
                             >
-                              <div className="mobile-sub-thumb-wrap">
-                                <img 
-                                  src={sub.image || 'https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png'} 
-                                  alt={sub.name} 
-                                  className="mobile-sub-thumb"
-                                  loading="lazy"
-                                />
-                              </div>
+                              <span className="item-bullet" style={{ color: '#059669', marginRight: '6px' }}>&bull;</span>
                               <div className="mobile-sub-main">
                                 <strong>{sub.name}</strong>
                                 <small>{sub.desc}</small>

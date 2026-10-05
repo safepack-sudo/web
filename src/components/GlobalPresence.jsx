@@ -46,10 +46,21 @@ export default function GlobalPresence() {
           </div>
 
           <div className="pan-india-action">
-            <a href="#contact" className="btn btn-primary btn-pan-india">
+            <button 
+              type="button" 
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.getElementById('contact');
+                if (target) {
+                  target.scrollIntoView({ behavior: 'smooth' });
+                  window.history.replaceState(null, '', '/');
+                }
+              }} 
+              className="btn btn-primary btn-pan-india"
+            >
               <span>Contact Global Sales</span>
               <i className="fa-solid fa-arrow-right"></i>
-            </a>
+            </button>
           </div>
         </div>
 

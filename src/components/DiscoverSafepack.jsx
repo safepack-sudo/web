@@ -94,9 +94,20 @@ export default function DiscoverSafepack() {
             </div>
 
             <div className="discover-action-row">
-              <a href="#solutions" className="btn btn-primary">
+              <button 
+                type="button" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.getElementById('solutions');
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    window.history.replaceState(null, '', '/');
+                  }
+                }} 
+                className="btn btn-primary"
+              >
                 Explore Core Solutions &rarr;
-              </a>
+              </button>
               <a 
                 href="https://www.youtube.com/watch?v=mZJMXLPRFwo&t=4s" 
                 target="_blank" 

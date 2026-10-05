@@ -61,37 +61,37 @@ export default function Footer() {
             <h3 className="footer-title">Company</h3>
             <ul className="footer-arrow-list">
               <li>
-                <a href="https://safepack.com/" target="_blank" rel="noopener noreferrer">
+                <a href="/">
                   <i className="fa-solid fa-angle-right"></i>
                   <span>Home</span>
                 </a>
               </li>
               <li>
-                <a href="https://safepack.com/about-us/" target="_blank" rel="noopener noreferrer">
+                <a href="/products/company-overview">
                   <i className="fa-solid fa-angle-right"></i>
                   <span>About Us</span>
                 </a>
               </li>
               <li>
-                <a href="https://safepack.com/leadership/" target="_blank" rel="noopener noreferrer">
+                <a href="/products/leadership">
                   <i className="fa-solid fa-angle-right"></i>
-                  <span>Team</span>
+                  <span>Leadership</span>
                 </a>
               </li>
               <li>
-                <a href="https://safepack.com/vci-products-application/" target="_blank" rel="noopener noreferrer">
+                <a href="/products/certifications">
+                  <i className="fa-solid fa-angle-right"></i>
+                  <span>Certifications</span>
+                </a>
+              </li>
+              <li>
+                <a href="/applications">
                   <i className="fa-solid fa-angle-right"></i>
                   <span>Applications</span>
                 </a>
               </li>
               <li>
-                <a href="https://safepack.com/news/" target="_blank" rel="noopener noreferrer">
-                  <i className="fa-solid fa-angle-right"></i>
-                  <span>News</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://safepack.com/contact/" target="_blank" rel="noopener noreferrer">
+                <a href="/?section=contact">
                   <i className="fa-solid fa-angle-right"></i>
                   <span>Contact</span>
                 </a>
@@ -104,39 +104,39 @@ export default function Footer() {
             <h3 className="footer-title">Products</h3>
             <ul className="footer-arrow-list">
               <li>
-                <a href="https://safepack.com/products/vci-packaging/" target="_blank" rel="noopener noreferrer">
+                <a href="/products/vci-paper-fabric-reinforced">
                   <i className="fa-solid fa-angle-right"></i>
                   <span>VCI Packaging</span>
                 </a>
               </li>
               <li>
-                <a href="https://safepack.com/products/vci-packaging/metal-wrap/vci-paper-scrim-reinforced/" target="_blank" rel="noopener noreferrer">
+                <a href="/products/vci-poly-coated-paper">
                   <i className="fa-solid fa-angle-right"></i>
                   <span>VCI Paper</span>
                 </a>
               </li>
               <li>
-                <a href="https://safepack.com/products/vci-packaging/vci-packaging-vci-plastics/vci-films/" target="_blank" rel="noopener noreferrer">
+                <a href="/products/vci-film-sheets">
                   <i className="fa-solid fa-angle-right"></i>
                   <span>VCI Film</span>
                 </a>
               </li>
               <li>
-                <a href="https://safepack.com/products/vci-packaging/vci-aluminium-bags/" target="_blank" rel="noopener noreferrer">
+                <a href="/products/vci-bags-tubing-film">
                   <i className="fa-solid fa-angle-right"></i>
                   <span>VCI Bag</span>
                 </a>
               </li>
               <li>
-                <a href="https://safepack.com/products/poly-laminates/poly-coated-papers" target="_blank" rel="noopener noreferrer">
+                <a href="/products/poly-coated-kraft-paper">
                   <i className="fa-solid fa-angle-right"></i>
-                  <span>Poly Coated</span>
+                  <span>Poly Coated Paper</span>
                 </a>
               </li>
               <li>
-                <a href="https://safepack.com/products/speciality-products/insulation-facing-laminates/" target="_blank" rel="noopener noreferrer">
+                <a href="/products/insulation-facing-laminates">
                   <i className="fa-solid fa-angle-right"></i>
-                  <span>Inuslation Laminates</span>
+                  <span>Insulation Laminates</span>
                 </a>
               </li>
             </ul>

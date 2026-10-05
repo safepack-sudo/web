@@ -96,11 +96,18 @@ export default function AskSiplChat({ onPreFillRfq }) {
   };
 
   const handleTransferToRfq = () => {
-    onPreFillRfq('Inquiry via Ask SIPL AI Assistant');
+    if (typeof onPreFillRfq === 'function') {
+      onPreFillRfq('Inquiry via Ask SIPL AI Assistant');
+    } else {
+      sessionStorage.setItem('prefill_rfq', 'Inquiry via Ask SIPL AI Assistant');
+    }
     setIsOpen(false);
     const contactSection = document.getElementById('contact');
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' });
+      window.history.replaceState(null, '', '/');
+    } else {
+      window.location.href = '/?section=contact';
     }
   };
 

@@ -119,6 +119,16 @@ export default function Hero() {
     touchEndX.current = 0;
   };
 
+  const handleScrollTo = (targetHref, e) => {
+    if (e) e.preventDefault();
+    const sectionId = targetHref.replace('#', '');
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      window.history.replaceState(null, '', '/');
+    }
+  };
+
   const current = heroSlides[currentSlide];
 
   return (
@@ -157,12 +167,20 @@ export default function Hero() {
                 </p>
 
                 <div className="hero-actions">
-                  <a href={slide.primaryBtn.href} className="btn btn-primary">
+                  <button 
+                    type="button" 
+                    onClick={(e) => handleScrollTo(slide.primaryBtn.href, e)} 
+                    className="btn btn-primary"
+                  >
                     {slide.primaryBtn.text} &rarr;
-                  </a>
-                  <a href={slide.secondaryBtn.href} className="btn btn-outline">
+                  </button>
+                  <button 
+                    type="button" 
+                    onClick={(e) => handleScrollTo(slide.secondaryBtn.href, e)} 
+                    className="btn btn-outline"
+                  >
                     {slide.secondaryBtn.text}
-                  </a>
+                  </button>
                 </div>
 
                 <div className="hero-trust">

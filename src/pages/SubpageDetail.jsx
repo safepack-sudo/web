@@ -81,6 +81,17 @@ export default function SubpageDetail() {
     touchEndX.current = 0;
   };
 
+  // Keyboard arrow keys navigation for carousel
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (galleryList.length <= 1) return;
+      if (e.key === 'ArrowRight') nextImg();
+      if (e.key === 'ArrowLeft') prevImg();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [galleryList.length]);
+
   const [toastMessage, setToastMessage] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
 
@@ -88,6 +99,15 @@ export default function SubpageDetail() {
     setToastMessage(msg);
     setToastVisible(true);
     setTimeout(() => setToastVisible(false), 3500);
+  };
+
+  const handleShareLink = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href);
+      showToast('✓ Technical dossier link copied to clipboard!');
+    } else {
+      showToast('✓ Direct URL: ' + window.location.href);
+    }
   };
 
   const displayHeadline = itemData?.headline || `${displayName} — High-Performance Industrial Packaging Solution`;
@@ -105,6 +125,24 @@ export default function SubpageDetail() {
     { k: "Standards & Compliance", v: "RoHS / REACH / ISO 9001 Certified" },
     { k: "Export Availability", v: "Worldwide Supply across 40+ Countries" }
   ];
+
+  // 3 Contextual related products in same/adjacent category
+  const relatedProducts = useMemo(() => {
+    if (!itemData) return [];
+    const entries = Object.entries(subpageDetailRegistry).filter(([key, data]) => {
+      if (key.toLowerCase() === displayName.toLowerCase()) return false;
+      const catA = (categoryTitle || '').toLowerCase();
+      const catB = (data.category || '').toLowerCase();
+      return catA === catB || (catA.includes('vci') && catB.includes('vci'));
+    });
+    return entries.slice(0, 3).map(([key, data]) => ({
+      name: data.name || key,
+      slug: slugify(key),
+      category: data.category,
+      badge: data.badge || 'Export Grade',
+      image: data.image || (data.gallery && data.gallery[0]) || 'https://safepack.com/wp-content/uploads/2021/07/vci-paper-scrim-reinforced-8-s1.png'
+    }));
+  }, [displayName, categoryTitle, itemData]);
 
   // Dynamic SEO, Canonical Link, and Schema.org Product Metadata
   useEffect(() => {
@@ -129,26 +167,53 @@ export default function SubpageDetail() {
     }
     scriptTag.text = JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "Product",
-      "name": displayName,
-      "image": galleryList,
-      "description": displaySummary,
-      "category": categoryTitle,
-      "brand": {
-        "@type": "Brand",
-        "name": "Safepack"
-      },
-      "manufacturer": {
-        "@type": "Organization",
-        "name": "Safepack Industries Ltd.",
-        "url": "https://safepack.com"
-      },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock",
-        "url": itemData?.liveUrl || `https://safepack.com/products/${slug}`
-      }
+      "@graph": [
+        {
+          "@type": "Product",
+          "name": displayName,
+          "image": galleryList,
+          "description": displaySummary,
+          "category": categoryTitle,
+          "brand": {
+            "@type": "Brand",
+            "name": "Safepack"
+          },
+          "manufacturer": {
+            "@type": "Organization",
+            "name": "Safepack Industries Ltd.",
+            "url": "https://safepack.com"
+          },
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "url": itemData?.liveUrl || `https://safepack.com/products/${slug}`
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://safepack.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": categoryTitle,
+              "item": "https://safepack.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": displayName,
+              "item": `https://safepack.com/products/${slug}`
+            }
+          ]
+        }
+      ]
     });
 
     return () => {
@@ -213,6 +278,14 @@ export default function SubpageDetail() {
                 <span className="canonical-badge">
                   <i className="fa-solid fa-earth-americas"></i> Exporting to 40+ Countries
                 </span>
+                <button 
+                  type="button" 
+                  onClick={handleShareLink} 
+                  className="canonical-badge canonical-share-btn"
+                  title="Copy direct product link to clipboard"
+                >
+                  <i className="fa-solid fa-share-nodes"></i> Share Dossier
+                </button>
               </div>
             </div>
 
@@ -411,12 +484,48 @@ export default function SubpageDetail() {
             </div>
           </article>
 
+          {/* Related Engineering Solutions Grid */}
+          {relatedProducts.length > 0 && (
+            <section className="standalone-related-section">
+              <div className="standalone-related-header">
+                <h3 className="standalone-related-title">
+                  <i className="fa-solid fa-cubes-stacked" style={{ color: '#00bf71' }}></i>
+                  Related {categoryTitle} Solutions
+                </h3>
+                <a href="/" className="related-see-all">
+                  Browse All 93 Products &rarr;
+                </a>
+              </div>
+              <div className="standalone-related-grid">
+                {relatedProducts.map((rel, rIdx) => (
+                  <a 
+                    key={rIdx} 
+                    href={`/products/${rel.slug}`} 
+                    className="related-product-card"
+                  >
+                    <div className="related-card-img-wrap">
+                      <img src={rel.image} alt={rel.name} loading="lazy" />
+                    </div>
+                    <span className="related-card-badge">{rel.badge}</span>
+                    <h4 className="related-card-name">{rel.name}</h4>
+                    <span className="related-card-cta">
+                      View Technical Specs <i className="fa-solid fa-arrow-right"></i>
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+
         </div>
       </main>
 
       <Footer />
       <WhatsappButton />
-      <AskSiplChat />
+      <AskSiplChat onPreFillRfq={(prod) => {
+        sessionStorage.setItem('prefill_rfq', prod);
+        navigate('/?section=contact');
+      }} />
       <Toast message={toastMessage} visible={toastVisible} />
     </div>
   );
